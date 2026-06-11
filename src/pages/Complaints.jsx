@@ -71,7 +71,7 @@ export default function Complaints() {
             <p className="complaints__mobile-card-text">{c.mobile.howText}</p>
             <p className="complaints__include-label">{c.mobile.includeLabel}</p>
             <div className="complaints__bullet-list">
-              {c.mobile.bullets.map(text => <Bullet key={text}>{text}</Bullet>)}
+              {(Array.isArray(c.mobile?.bullets) ? c.mobile.bullets : []).map(text => <Bullet key={text}>{text}</Bullet>)}
             </div>
           </div>
           <div className="card complaints__mobile-card">
@@ -150,7 +150,7 @@ export default function Complaints() {
               <p className="complaints__text">{c.how.p2}</p>
               <p className="complaints__include-label">{c.how.includeLabel}</p>
               <div className="complaints__bullet-list">
-                {c.how.bullets.map(text => <Bullet key={text}>{text}</Bullet>)}
+                {(Array.isArray(c.how?.bullets) ? c.how.bullets : []).map(text => <Bullet key={text}>{text}</Bullet>)}
               </div>
               <p className="complaints__footnote-sm">{c.how.footnote}</p>
             </div>
