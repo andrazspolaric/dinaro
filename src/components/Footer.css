@@ -8,8 +8,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100vw;
-	margin-left: calc(50% - 50vw);
+	/* Full bleed past the #root cap. vw units ignore the html zoom set by
+	   useViewportScale, so divide by the zoom factor to span the real width. */
+	width: calc(100vw / var(--viewport-zoom, 1));
+	margin-left: calc(50% - 50vw / var(--viewport-zoom, 1));
 }
 
 .footer__watermark {

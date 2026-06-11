@@ -14,8 +14,11 @@ function useViewportScale() {
 			if (window.innerWidth >= DESKTOP_MIN) {
 				const scale = Math.min(1, window.innerWidth / CANVAS_WIDTH);
 				document.documentElement.style.zoom = String(scale);
+				// vw units ignore zoom, so full-bleed tricks (footer) divide by this
+				document.documentElement.style.setProperty('--viewport-zoom', String(scale));
 			} else {
 				document.documentElement.style.zoom = '1';
+				document.documentElement.style.setProperty('--viewport-zoom', '1');
 			}
 		}
 		applyScale();
