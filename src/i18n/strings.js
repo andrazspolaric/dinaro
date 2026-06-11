@@ -225,11 +225,11 @@ export const strings = {
 		businessDebitCard: {},
 		emt: {
 			heroTitle: 'E-Money Tokens',
-			heroSubtitle: 'Euro-backed digital tokens on XRP Ledger and Xahau, fully EU MiCA regulated.',
+			heroSubtitle: 'Coming Soon',
 			ctaTitle: 'Launch Your Financial Product',
 			features: [
 				{ tag: 'XRPL', title: 'Real-Time Transactions', text: 'Instant on-chain transactions on XRP Ledger and Xahau with minimal fees.' },
-				{ tag: 'RESERVE', title: 'Full Reserve Backing', text: 'Each GateHub EURO token is backed 1:1 by euros held in segregated accounts at European financial institutions. Your funds remain fully protected and safeguarded.' },
+				{ tag: 'RESERVE', title: 'Full Reserve Backing', text: 'Each euro token is backed 1:1 by euros held in segregated accounts at European financial institutions. Your funds remain fully protected and safeguarded.' },
 				{ tag: 'REGULATED', title: 'EU MiCA Regulated', text: "Fully compliant with Europe's Markets in Crypto-Assets regulation framework." },
 				{ tag: 'REDEMPTION', title: 'Instant Redemption', text: 'Withdraw your EURO back to your bank account anytime through web and mobile applications.' },
 				{ tag: 'MULTI-CHAIN', title: 'Multi-Chain Support', text: 'Available on both XRP Ledger and Xahau for maximum flexibility and interoperability.' },
@@ -666,11 +666,11 @@ export const strings = {
 		businessDebitCard: {},
 		emt: {
 			heroTitle: 'E-žetoni',
-			heroSubtitle: 'Digitalni žetoni, podprti z evrom, na XRP Ledger in Xahau, popolnoma skladni z EU MiCA.',
+			heroSubtitle: 'Kmalu na voljo',
 			ctaTitle: 'Lansirajte svoj finančni produkt',
 			features: [
 				{ tag: 'XRPL', title: 'Transakcije v realnem času', text: 'Takojšnje on-chain transakcije na XRP Ledger in Xahau z minimalnimi pristojbinami.' },
-				{ tag: 'REZERVA', title: 'Polno rezervno kritje', text: 'Vsak GateHub EURO žeton je 1:1 podprt z evri na ločenih računih pri evropskih finančnih ustanovah. Vaša sredstva ostajajo popolnoma zaščitena in varovana.' },
+				{ tag: 'REZERVA', title: 'Polno rezervno kritje', text: 'Vsak evro žeton je 1:1 podprt z evri na ločenih računih pri evropskih finančnih ustanovah. Vaša sredstva ostajajo popolnoma zaščitena in varovana.' },
 				{ tag: 'REGULIRANO', title: 'Skladno z EU MiCA', text: 'Popolnoma skladno z evropskim regulativnim okvirom Markets in Crypto-Assets.' },
 				{ tag: 'UNOVČITEV', title: 'Takojšnja unovčitev', text: 'EURO kadarkoli dvignite nazaj na bančni račun prek spletnih in mobilnih aplikacij.' },
 				{ tag: 'MULTI-CHAIN', title: 'Podpora več verigam', text: 'Na voljo na XRP Ledger in Xahau za največjo prilagodljivost in interoperabilnost.' },

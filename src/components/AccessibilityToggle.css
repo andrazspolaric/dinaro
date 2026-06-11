@@ -46,7 +46,8 @@
 	position: fixed;
 	top: 0;
 	right: 0;
-	height: 100vh;
+	/* vh ignores the html zoom set by useViewportScale — divide like Footer.css */
+	height: calc(100vh / var(--viewport-zoom, 1));
 	width: 450px;
 	max-width: 90vw;
 	background: rgba(255,255,255,0.85);
