@@ -122,7 +122,7 @@ function ReportsSection({ heading, intro, trigger, columns, rows, modalTitle, mo
               borderRadius: 20,
               maxWidth: 720,
               width: '100%',
-              maxHeight: '85vh',
+              maxHeight: 'calc(85vh / var(--viewport-zoom, 1))',
               display: 'flex',
               flexDirection: 'column',
               boxShadow: '0 24px 60px rgba(4, 67, 82, 0.35)',

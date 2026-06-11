@@ -1393,7 +1393,7 @@
 .not-found {
 	background-color: var(--color-white);
 	width: var(--canvas-width);
-	min-height: 100vh;
+	min-height: calc(100vh / var(--viewport-zoom, 1));
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;

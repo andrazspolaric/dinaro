@@ -55,7 +55,7 @@ function PageLoader() {
 	return (
 		<div style={{
 			display: 'flex', opacity: 0, alignItems: 'center', justifyContent: 'center',
-			minHeight: '100vh', fontFamily: "'Inter', sans-serif",
+			minHeight: 'calc(100vh / var(--viewport-zoom, 1))', fontFamily: "'Inter', sans-serif",
 		}}>
 			<div style={{
 				width: 40, height: 40, border: '3px solid rgba(4,67,82,0.15)',

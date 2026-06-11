@@ -19,7 +19,7 @@ export default class ErrorBoundary extends Component {
       return (
         <div style={{
           display: 'flex', flexDirection: 'column', alignItems: 'center',
-          justifyContent: 'center', minHeight: '100vh', gap: 24,
+          justifyContent: 'center', minHeight: 'calc(100vh / var(--viewport-zoom, 1))', gap: 24,
           fontFamily: "'Inter', sans-serif", padding: 32, textAlign: 'center',
         }}>
           <p style={{ fontSize: 48, fontWeight: 600, color: '#044352' }}>Something went wrong</p>
