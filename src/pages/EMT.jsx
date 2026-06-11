@@ -356,6 +356,8 @@ export default function EMT({ variant = 'v1' }) {
   const bp = useBreakpoint();
   const t = useT();
   const ns = variant === 'v2' ? 'emtV2' : 'emt';
+  const heroBadge = variant === 'v2' ? null : t(`${ns}.heroBadge`);
+  const heroSubtitle = variant === 'v2' ? t(`${ns}.heroSubtitle`) : null;
   const features = t(`${ns}.features`).map((f, i) => ({ ...f, cardSide: FEATURE_SIDES[i] }));
   const ctaTitle = t(`${ns}.ctaTitle`);
   const faq = variant === 'v2' ? t(`${ns}.faq`) : null;
@@ -365,7 +367,8 @@ export default function EMT({ variant = 'v1' }) {
     return (
       <MobileFeaturePage
         heroTitle={t(`${ns}.heroTitle`)}
-        heroSubtitle={t(`${ns}.heroSubtitle`)}
+        heroSubtitle={heroSubtitle}
+        heroExtra={heroBadge && <span className="mobile-page__hero-badge">{heroBadge}</span>}
         features={features}
         extraContent={(faq || reports) && (
           <>
@@ -387,7 +390,8 @@ export default function EMT({ variant = 'v1' }) {
         <div className="fp__hero-vector-wrap"><img alt="" className="fp__hero-vector" src={imgVector} /></div>
         <div className="fp__hero-text">
           <p className="fp__hero-title">{t(`${ns}.heroTitle`)}</p>
-          <p className="fp__hero-subtitle">{t(`${ns}.heroSubtitle`)}</p>
+          {heroSubtitle && <p className="fp__hero-subtitle">{heroSubtitle}</p>}
+          {heroBadge && <span className="fp__hero-badge">{heroBadge}</span>}
         </div>
       </div>
       <div className="fp__features">

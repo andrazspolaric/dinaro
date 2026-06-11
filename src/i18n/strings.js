@@ -170,7 +170,7 @@ export const strings = {
 		paymentAccounts: {
 			heroTitle: 'Payment Accounts',
 			heroSubtitle: 'Everything you need to manage your money, in one place.',
-			tabs: { individual: 'Individual', business: 'Business (Coming Soon)' },
+			tabs: { individual: 'Individual', business: 'Business' },
 			ctaTitle: 'Open your payment account in just a few simple steps.',
 			individual: {
 				heroTitle: 'Personal Account',
@@ -187,7 +187,7 @@ export const strings = {
 				features: [
 					{ tag: 'ACCOUNT', title: 'Business Account', text: 'Your Business Account provides a secure, seamless solution with a Slovenian IBAN for global or local operations.' },
 					{ tag: 'SEPA', title: 'Payments', text: 'Supports SEPA and Instant SEPA transfers, enabling fast and secure euro transactions across Europe.' },
-					{ tag: 'MULTI-CURRENCY', title: 'Multi Currency Support', text: 'Handle local and international payments in euros and 20+ major currencies all from one account. Use FX services for competitive rates.' },
+					{ tag: 'MULTI-CURRENCY', badge: 'Coming Soon', title: 'Multi Currency Support', text: 'Handle local and international payments in euros and 20+ major currencies all from one account. Use FX services for competitive rates.' },
 				],
 			},
 		},
@@ -225,7 +225,7 @@ export const strings = {
 		businessDebitCard: {},
 		emt: {
 			heroTitle: 'E-Money Tokens',
-			heroSubtitle: 'Coming Soon',
+			heroBadge: 'Coming Soon',
 			ctaTitle: 'Launch Your Financial Product',
 			features: [
 				{ tag: 'XRPL', title: 'Real-Time Transactions', text: 'Instant on-chain transactions on XRP Ledger and Xahau with minimal fees.' },
@@ -340,7 +340,7 @@ export const strings = {
 			],
 			whyCards: [
 				{ title: 'Segregated Accounts', text: 'Client funds protected in segregated accounts with partner banks.' },
-				{ title: 'Full Compliance', text: 'E-money license for EEA.' },
+				{ title: 'Full Compliance', text: 'Licensed e-money institution regulated by the Bank of Slovenia, authorised to operate across the EEA.' },
 				{ title: 'API-First Technology', text: 'Modern API infrastructure designed for seamless integration and scalability.' },
 				{ title: 'AML & Fraud Prevention', text: 'Comprehensive anti-money laundering and fraud prevention measures built-in.' },
 				{ title: '360° Support', text: 'Complete ecosystem support connecting crucial partners in the payment industry.' },
@@ -661,7 +661,7 @@ export const strings = {
 		paymentAccounts: {
 			heroTitle: 'Plačilni računi',
 			heroSubtitle: 'Vse, kar potrebujete za upravljanje denarja, na enem mestu.',
-			tabs: { individual: 'Osebni', business: 'Poslovni (V pripravi)' },
+			tabs: { individual: 'Osebni', business: 'Poslovni' },
 			ctaTitle: 'Odprite plačilni račun v nekaj preprostih korakih.',
 			individual: {
 				heroTitle: 'Osebni račun',
@@ -678,7 +678,7 @@ export const strings = {
 				features: [
 					{ tag: 'RAČUN', title: 'Poslovni račun', text: 'Vaš poslovni račun ponuja varno in tekočo rešitev s slovenskim IBAN-om za globalno ali lokalno poslovanje.' },
 					{ tag: 'SEPA', title: 'Plačila', text: 'Podpora SEPA in Instant SEPA prenosom za hitre in varne transakcije v evrih po Evropi.' },
-					{ tag: 'VEČVALUTNO', title: 'Podpora več valut', text: 'Upravljajte lokalna in mednarodna plačila v evrih in 20+ glavnih valutah z enega računa. Uporabite FX storitve za konkurenčne tečaje.' },
+					{ tag: 'VEČVALUTNO', badge: 'V pripravi', title: 'Podpora več valut', text: 'Upravljajte lokalna in mednarodna plačila v evrih in 20+ glavnih valutah z enega računa. Uporabite FX storitve za konkurenčne tečaje.' },
 				],
 			},
 		},
@@ -716,7 +716,7 @@ export const strings = {
 		businessDebitCard: {},
 		emt: {
 			heroTitle: 'E-žetoni',
-			heroSubtitle: 'Kmalu na voljo',
+			heroBadge: 'Kmalu na voljo',
 			ctaTitle: 'Lansirajte svoj finančni produkt',
 			features: [
 				{ tag: 'XRPL', title: 'Transakcije v realnem času', text: 'Takojšnje on-chain transakcije na XRP Ledger in Xahau z minimalnimi pristojbinami.' },
@@ -831,7 +831,7 @@ export const strings = {
 			],
 			whyCards: [
 				{ title: 'Ločeni računi', text: 'Sredstva strank zaščitena na ločenih računih pri partnerskih bankah.' },
-				{ title: 'Polna skladnost', text: 'E-money licenca za EGP.' },
+				{ title: 'Polna skladnost', text: 'Licencirana ustanova za e-denar pod nadzorom Banke Slovenije, z dovoljenjem za poslovanje po celotnem EGP.' },
 				{ title: 'API-First tehnologija', text: 'Sodobna API infrastruktura, zasnovana za tekočo integracijo in skalabilnost.' },
 				{ title: 'AML in zaščita pred goljufijami', text: 'Celovito preprečevanje pranja denarja in zaščita pred goljufijami sta vgrajena.' },
 				{ title: '360° podpora', text: 'Celovita ekosistemska podpora, ki povezuje ključne partnerje v plačilni industriji.' },

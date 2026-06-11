@@ -34,9 +34,12 @@ export function MobileFeaturePage({ heroTitle, heroTagline, heroSubtitle, heroEx
 
       {/* Feature Cards */}
       <div className="mobile-page__features">
-        {features.map(({ tag, title, text }) => (
+        {features.map(({ tag, badge, title, text }) => (
           <div key={tag} className="card mobile-page__feature-card">
-            <p className="mobile-page__feature-tag">{tag}</p>
+            <div className="mobile-page__feature-tag-row">
+              <p className="mobile-page__feature-tag">{tag}</p>
+              {badge && <span className="mobile-page__feature-badge">{badge}</span>}
+            </div>
             <p className="mobile-page__feature-title">{title}</p>
             <p className="mobile-page__feature-text">{text}</p>
           </div>

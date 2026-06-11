@@ -87,6 +87,20 @@
 	opacity: 0.6;
 }
 
+.fp__hero-badge {
+	font-family: var(--font-inter);
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: white;
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	padding: 6px 16px;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+
 /* ── Feature Rows ── */
 .fp__features {
 	margin: 120px var(--page-gutter) 0;
@@ -137,6 +151,26 @@
 	text-transform: uppercase;
 	color: var(--color-primary);
 	opacity: 0.5;
+}
+
+.fp__feature-tag-row {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.fp__feature-badge {
+	font-family: var(--font-inter);
+	font-weight: 600;
+	font-size: 11px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-primary);
+	background: rgba(4, 67, 82, 0.08);
+	border: 1px solid rgba(4, 67, 82, 0.18);
+	padding: 3px 10px;
+	border-radius: 999px;
+	white-space: nowrap;
 }
 
 .fp__feature-title-row {
