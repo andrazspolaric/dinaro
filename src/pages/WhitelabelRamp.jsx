@@ -4,17 +4,14 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { MobileFeaturePage } from '../components/MobileFeaturePage';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 
 import imgVector from '../assets/api-vector.svg';
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-const features = [
-  { cardSide: 'right', tag: 'WHITE-LABEL', title: 'Your Brand, Our Ramp',      text: "One way to make a quick entry into your own business is white labeling - selling products or services developed by Dinaro. Whitelabel Ramp and customize it with your own designs or branding that fits your needs." },
-  { cardSide: 'left',  tag: 'SEPA',        title: 'SEPA Payment Module',       text: "Accept and send payments across Europe with full SEPA and Instant SEPA support. Our white-label Ramp acts as a native payment module - letting your users fund accounts and withdraw funds via bank transfer with no friction.\n\nAll payment flows are pre-built and compliant, ready to embed into your product." },
-  { cardSide: 'right', tag: 'CRYPTO',      title: 'On and Off Ramp for Crypto', text: "Bridge the gap between traditional finance and digital assets. Our Ramp enables your users to convert fiat to crypto and crypto to fiat - directly within your product.\n\nBuilt on regulated infrastructure, so every transaction is compliant, fast, and fully branded to your business." },
-];
+const FEATURE_SIDES = ['right', 'left', 'right'];
 
 function FeatureRow({ cardSide, tag, title, text }) {
   return (
@@ -36,14 +33,18 @@ function FeatureRow({ cardSide, tag, title, text }) {
 export default function WhitelabelRamp() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
+  const content = t('whitelabel.ramp');
+  const features = content.features.map((f, i) => ({ ...f, cardSide: FEATURE_SIDES[i] }));
+
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <MobileFeaturePage
-        heroTitle="Whitelabel Ramp"
-        heroSubtitle="Embed SEPA payments and crypto on/off ramp into your product under your own brand."
+        heroTitle={content.heroTitle}
+        heroSubtitle={content.heroSubtitle}
         features={features}
-        ctaTitle="Launch Your White-Label Ramp"
-        ctaButton="Contact Us"
+        ctaTitle={content.ctaTitle}
+        ctaButton={t('common.contactUs')}
         navigate={navigate}
       />
     );
@@ -55,8 +56,8 @@ export default function WhitelabelRamp() {
         <div className="fp__hero-bg" style={{ backgroundImage: heroBg }} />
         <div className="fp__hero-vector-wrap"><img alt="" className="fp__hero-vector" src={imgVector} /></div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title">Whitelabel Ramp</p>
-          <p className="fp__hero-subtitle">Embed SEPA payments and crypto on/off ramp into your product under your own brand.</p>
+          <p className="fp__hero-title">{content.heroTitle}</p>
+          <p className="fp__hero-subtitle">{content.heroSubtitle}</p>
         </div>
       </div>
       <div className="fp__features">
@@ -65,9 +66,9 @@ export default function WhitelabelRamp() {
         ))}
       </div>
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Launch Your White-Label Ramp</p>
+        <p className="fp__cta-title">{content.ctaTitle}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
       <Footer />

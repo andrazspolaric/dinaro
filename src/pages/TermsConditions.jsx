@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ctaBg } from '../shared';
 import Navbar from '../components/Navbar';
@@ -14,10 +14,57 @@ const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%),
 
 const heroBgMobile = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
+function slugify(s) {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .trim()
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-');
+}
+
+function buildSlugs(items) {
+  const seen = new Map();
+  return items.map(({ title }) => {
+    const base = slugify(title) || 'section';
+    const count = seen.get(base) || 0;
+    seen.set(base, count + 1);
+    return count === 0 ? base : `${base}-${count + 1}`;
+  });
+}
+
+function indexFromHash(slugs, hash) {
+  if (!hash) return 0;
+  const slug = hash.replace(/^#/, '');
+  const i = slugs.indexOf(slug);
+  return i >= 0 ? i : 0;
+}
+
 export default function TermsConditions() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const slugs = useMemo(() => buildSlugs(sections), []);
+  const [activeIndex, setActiveIndex] = useState(() =>
+    indexFromHash(slugs, typeof window !== 'undefined' ? window.location.hash : '')
+  );
+
+  useEffect(() => {
+    const onHashChange = () => setActiveIndex(indexFromHash(slugs, window.location.hash));
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, [slugs]);
+
+  const selectSection = (i, e) => {
+    if (e) e.preventDefault();
+    setActiveIndex(i);
+    const newHash = `#${slugs[i]}`;
+    if (window.location.hash !== newHash) {
+      window.history.pushState(null, '', newHash);
+    }
+    if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const { title, html } = sections[activeIndex];
 
@@ -30,14 +77,14 @@ export default function TermsConditions() {
         </div>
         <div className="terms__mobile-tabs">
           {sections.map(({ title: t }, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActiveIndex(i)}
+            <a
+              key={slugs[i]}
+              href={`#${slugs[i]}`}
+              onClick={(e) => selectSection(i, e)}
               className={`terms__mobile-tab${i === activeIndex ? ' terms__mobile-tab--active' : ''}`}
             >
               {t}
-            </button>
+            </a>
           ))}
         </div>
         <div className="fp__content-mobile">
@@ -86,16 +133,17 @@ export default function TermsConditions() {
       <style>{`@keyframes termsFade { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }`}</style>
 
       <div className="terms__layout">
-        <nav className="terms__sidebar">
+        <nav className="terms__sidebar" aria-label="Terms sections">
           {sections.map(({ title: t }, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActiveIndex(i)}
+            <a
+              key={slugs[i]}
+              href={`#${slugs[i]}`}
+              onClick={(e) => selectSection(i, e)}
               className={`terms__nav-item${i === activeIndex ? ' terms__nav-item--active' : ''}`}
+              aria-current={i === activeIndex ? 'true' : undefined}
             >
               {t}
-            </button>
+            </a>
           ))}
         </nav>
         <div className="terms__main">

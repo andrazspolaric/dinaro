@@ -4,47 +4,14 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { MobileFeaturePage } from '../components/MobileFeaturePage';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 
 import imgVector from '../assets/api-vector.svg';
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-const features = [
-  {
-    cardSide: 'right',
-    tag: 'WHITE-LABEL',
-    title: 'White-Label Solution',
-    text: 'Offering a flexible White Label solution for turnkey launch of branded cards, tailormade for your business and accepted everywhere.\n\nWe are following all industry-standard regulations and best practices to ensure that your funds are protected.',
-  },
-  {
-    cardSide: 'left',
-    tag: 'MASTERCARD',
-    title: 'BIN Sponsorship',
-    text: 'Avoid the complexity of a card issuing project. As a Mastercard Principal Member we can sponsor you.\n\nWe connect all crucial and relevant partners in the payment ecosystem, supporting you with 360 approach.',
-  },
-  {
-    cardSide: 'right',
-    tag: 'CUSTOMIZABLE',
-    title: 'Custom Branded Debit Cards',
-    text: 'Designed as API-first approached tech provider and empowered with industry expertise enriched with business experiences, Dinaro acts as a global full-service provider of innovative payment solutions.',
-  },
-  {
-    cardSide: 'left',
-    tag: 'API DRIVEN',
-    title: 'Authorization API',
-    text: "Your cards. Your rules. Your ledger. Dinaro's Authorization API gives you full debit card infrastructure while you keep complete control. Authorize transactions in real time through your own stack, maintain your own ledger as the source of truth, and go live in weeks — not quarters.",
-  },
-];
-
-const whyCards = [
-  { title: 'Global Acceptance',    text: 'Mastercard-powered cards accepted worldwide at millions of merchants and ATMs.' },
-  { title: 'Fraud Prevention',     text: 'Industry-leading security measures to protect your funds, card details, and customer data at all times.' },
-  { title: 'Fast Settlement',      text: 'Quick transaction processing and settlement for seamless cash flow management.' },
-  { title: 'API Integration',      text: 'Modern REST APIs for seamless integration with your existing systems.' },
-  { title: 'Mobile Management',    text: 'Cardwiser mobile app for card management and fund monitoring.' },
-  { title: 'Regulatory Compliance',text: 'Full compliance with PCI DSS and all major payment industry regulations.' },
-];
+const FEATURE_SIDES = ['right', 'left', 'right', 'left'];
 
 function FeatureRow({ cardSide, tag, title, text }) {
   return (
@@ -68,16 +35,20 @@ function FeatureRow({ cardSide, tag, title, text }) {
 export default function CardsAPI() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
+  const features = t('cardsApi.features').map((f, i) => ({ ...f, cardSide: FEATURE_SIDES[i] }));
+  const whyCards = t('cardsApi.whyCards');
+
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <MobileFeaturePage
-        heroTitle="Cards API"
-        heroSubtitle="Issue branded, customizable debit cards globally with our API-first card issuing infrastructure."
+        heroTitle={t('cardsApi.heroTitle')}
+        heroSubtitle={t('cardsApi.heroSubtitle')}
         features={features}
-        whyTitle="Why Choose Dinaro Cards"
+        whyTitle={t('cardsApi.whyHeadingMobile')}
         whyCards={whyCards}
-        ctaTitle="Launch Your Financial Product"
-        ctaButton="Contact Us"
+        ctaTitle={t('cardsApi.ctaTitleMobile')}
+        ctaButton={t('common.contactUs')}
         navigate={navigate}
       />
     );
@@ -92,8 +63,8 @@ export default function CardsAPI() {
           <img alt="" className="fp__hero-vector" src={imgVector} />
         </div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title">Cards API</p>
-          <p className="fp__hero-subtitle">Issue branded, customizable debit cards globally with our API-first card issuing infrastructure.</p>
+          <p className="fp__hero-title">{t('cardsApi.heroTitle')}</p>
+          <p className="fp__hero-subtitle">{t('cardsApi.heroSubtitle')}</p>
         </div>
       </div>
 
@@ -103,7 +74,7 @@ export default function CardsAPI() {
         ))}
       </div>
 
-      <p className="fp__why-section-heading">Why Choose Dinaro Card Issuing</p>
+      <p className="fp__why-section-heading">{t('cardsApi.whyHeading')}</p>
 
       <div className="fp__why-grid">
         <div className="fp__why-grid-row">
@@ -131,9 +102,9 @@ export default function CardsAPI() {
       </div>
 
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Launch your card issuing programme today.</p>
+        <p className="fp__cta-title">{t('cardsApi.ctaTitle')}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
 

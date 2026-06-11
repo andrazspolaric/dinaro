@@ -3,6 +3,7 @@ import { ctaBg } from '../shared';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 import '../components/MobileFeaturePage.css';
 
@@ -13,6 +14,7 @@ const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%),
 
 const heroBgMobile = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
+// Plugin titles & URLs are not translatable.
 const modules = [
   { title: 'Magento',     sub: 'Dinaro Plugin', href: 'https://gate.paywiser.eu/apis/plugins/Magento%20v2.0+' },
   { title: 'WooCommerce', sub: 'Dinaro Plugin', href: 'https://gate.paywiser.eu/apis/plugins/WooCommerce%20v3.5+' },
@@ -20,7 +22,7 @@ const modules = [
   { title: 'PrestShop',   sub: 'Dinaro Plugin', href: 'https://gate.paywiser.eu/apis/plugins/PrestaShop%20v1.7+' },
 ];
 
-function ModuleCard({ title, sub, href }) {
+function ModuleCard({ title, sub, href, instructionsLabel }) {
   return (
     <div className="card pm__module-card">
       <div className="pm__module-thumb" />
@@ -30,7 +32,7 @@ function ModuleCard({ title, sub, href }) {
           <p className="pm__module-sub">{sub}</p>
         </div>
         <button type="button" className="pm__module-btn" onClick={() => window.open(href, '_blank')}>
-          <p className="pm__module-btn-label">Instructions</p>
+          <p className="pm__module-btn-label">{instructionsLabel}</p>
           <div className="pm__module-btn-icon-wrap">
             <img alt="" className="pm__module-btn-icon-bg" src={imgCircle} />
             <svg className="pm__module-btn-icon-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,14 +50,16 @@ function ModuleCard({ title, sub, href }) {
 export default function PaymentModules() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
+  const instructionsLabel = t('paymentModules.instructions');
 
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <div className="mobile-page">
         <Navbar />
         <div className="mobile-page__hero" style={{ backgroundImage: heroBgMobile }}>
-          <p className="mobile-page__hero-title">Payment Modules</p>
-          <p className="mobile-page__hero-subtitle">Download and integrate Dinaro payment plugins for your e-commerce platform.</p>
+          <p className="mobile-page__hero-title">{t('paymentModules.heroTitle')}</p>
+          <p className="mobile-page__hero-subtitle">{t('paymentModules.heroSubtitle')}</p>
         </div>
         <div className="pm__mobile-modules">
           {modules.map(({ title, sub, href }) => (
@@ -65,26 +69,26 @@ export default function PaymentModules() {
                 <p className="pm__mobile-module-sub">{sub}</p>
               </div>
               <button type="button" className="pm__mobile-module-btn" onClick={() => window.open(href, '_blank')}>
-                Instructions
+                {instructionsLabel}
               </button>
             </div>
           ))}
         </div>
         <div className="mobile-page__cta" style={{ backgroundImage: ctaBg }}>
-          <p className="mobile-page__cta-title">Open your payment account in just a few simple steps.</p>
+          <p className="mobile-page__cta-title">{t('paymentModules.ctaTitle')}</p>
           <button type="button" className="mobile-page__cta-btn" onClick={() => navigate('/contact')}>
-            Contact Us
+            {t('common.contactUs')}
           </button>
         </div>
         <div className="mobile-page__footer">
-          <p className="mobile-page__footer-copy">© 2026 Dinaro. All Rights Reserved.</p>
+          <p className="mobile-page__footer-copy">{t('footer.copyShort')}</p>
           <div className="mobile-page__footer-links">
             {[
-              { label: 'Terms & Conditions', href: '/terms' },
-              { label: 'Privacy Policy', href: '/privacy-policy' },
-              { label: 'Complaints', href: '/complaints' },
+              { label: t('footer.terms'), href: '/terms' },
+              { label: t('footer.privacy'), href: '/privacy-policy' },
+              { label: t('footer.complaints'), href: '/complaints' },
             ].map(({ label, href }) => (
-              <a key={label} href={href} className="mobile-page__footer-link">{label}</a>
+              <a key={href} href={href} className="mobile-page__footer-link">{label}</a>
             ))}
           </div>
         </div>
@@ -102,20 +106,20 @@ export default function PaymentModules() {
           <img alt="" className="fp__hero-vector" src={imgVector} />
         </div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title">Payment Modules</p>
+          <p className="fp__hero-title">{t('paymentModules.heroTitle')}</p>
         </div>
       </div>
 
       <div className="pm__modules-grid">
         {modules.map(({ title, sub, href }) => (
-          <ModuleCard key={title} title={title} sub={sub} href={href} />
+          <ModuleCard key={title} title={title} sub={sub} href={href} instructionsLabel={instructionsLabel} />
         ))}
       </div>
 
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Open your payment account in just a few simple steps.</p>
+        <p className="fp__cta-title">{t('paymentModules.ctaTitle')}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
 

@@ -4,19 +4,14 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { MobileFeaturePage } from '../components/MobileFeaturePage';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 
 import imgVector from '../assets/world-map.svg';
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-const features = [
-  { cardSide: 'right', tag: 'BUSINESS',    title: 'Business Cards',                    text: 'Issue travel cards, employee spending, petty cash, or purchasing cards for your business - ready for in-person and online purchases worldwide.' },
-  { cardSide: 'left',  tag: 'CONNECTED',   title: 'Connected to Your Business Account', text: 'Directly linked to your Dinaro Business Account, giving your team instant access to company funds with full visibility and control.' },
-  { cardSide: 'right', tag: 'ATM',         title: 'Global ATM Access',                 text: 'Access funds at partner ATMs worldwide in local currencies, keeping your team equipped with cash wherever business takes them.' },
-  { cardSide: 'left',  tag: 'MOBILE',      title: 'Mobile App Control',                text: 'Monitor team spending, set card limits, and manage transactions in real time through the Dinaro mobile app - all from one place.' },
-  { cardSide: 'right', tag: 'WHITE-LABEL', title: 'Custom Branding',                   text: 'Personalize the app and cards with your business logo, creating a seamless branded experience for your team and clients.' },
-];
+const FEATURE_SIDES = ['right', 'left', 'right', 'left', 'right'];
 
 function FeatureRow({ cardSide, tag, title, text }) {
   return (
@@ -38,13 +33,18 @@ function FeatureRow({ cardSide, tag, title, text }) {
 export default function BusinessDebitCard() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
+  const content = t('debitCards.business');
+  const features = content.features.map((f, i) => ({ ...f, cardSide: FEATURE_SIDES[i] }));
+  const ctaTitle = t('debitCards.ctaTitle');
+
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <MobileFeaturePage
-        heroTitle="Business Debit Card"
-        heroSubtitle="Everyday Solutions for Real Life"
+        heroTitle={content.heroTitle}
+        heroSubtitle={content.heroSubtitle}
         features={features}
-        ctaTitle="Open your payment account in just a few simple steps."
+        ctaTitle={ctaTitle}
         navigate={navigate}
       />
     );
@@ -56,8 +56,8 @@ export default function BusinessDebitCard() {
         <div className="fp__hero-bg" style={{ backgroundImage: heroBg }} />
         <div className="fp__hero-vector-wrap"><img alt="" className="fp__hero-vector" src={imgVector} /></div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title fp__hero-title--sm">Business Debit Card</p>
-          <p className="fp__hero-subtitle">Everyday Solutions for Real Life</p>
+          <p className="fp__hero-title fp__hero-title--sm">{content.heroTitle}</p>
+          <p className="fp__hero-subtitle">{content.heroSubtitle}</p>
         </div>
       </div>
       <div className="fp__features">
@@ -66,9 +66,9 @@ export default function BusinessDebitCard() {
         ))}
       </div>
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Open your payment account in just a few simple steps.</p>
+        <p className="fp__cta-title">{ctaTitle}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
       <Footer />

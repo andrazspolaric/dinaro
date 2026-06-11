@@ -1,11 +1,13 @@
 // Shared mobile layout for feature-row product/solution pages
 import { ctaBg } from '../shared';
 import Navbar from './Navbar';
+import { useT } from '../i18n/useT';
 import './MobileFeaturePage.css';
 
 const heroBgMobile = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-export function MobileFeaturePage({ heroTitle, heroSubtitle, heroExtra, features, whyTitle, whyCards, ctaTitle, ctaButton, navigate, extraContent }) {
+export function MobileFeaturePage({ heroTitle, heroTagline, heroSubtitle, heroExtra, features, whyTitle, whyCards, ctaTitle, ctaButton, navigate, extraContent }) {
+  const t = useT();
   return (
     <div className="mobile-page">
       <Navbar />
@@ -13,6 +15,17 @@ export function MobileFeaturePage({ heroTitle, heroSubtitle, heroExtra, features
       {/* Hero */}
       <div className="mobile-page__hero" style={{ backgroundImage: heroBgMobile }}>
         <p className="mobile-page__hero-title">{heroTitle}</p>
+        {heroTagline && (
+          <p style={{
+            fontFamily: 'var(--font-inter)',
+            fontWeight: 500,
+            fontSize: 18,
+            lineHeight: 1.35,
+            color: 'white',
+            opacity: 0.85,
+            margin: 0,
+          }}>{heroTagline}</p>
+        )}
         {heroSubtitle && (
           <p className="mobile-page__hero-subtitle">{heroSubtitle}</p>
         )}
@@ -48,27 +61,27 @@ export function MobileFeaturePage({ heroTitle, heroSubtitle, heroExtra, features
       {/* CTA */}
       <div className="mobile-page__cta" style={{ backgroundImage: ctaBg }}>
         <p className="mobile-page__cta-title">
-          {ctaTitle || 'Open your payment account in just a few simple steps.'}
+          {ctaTitle || t('common.ctaTitleDefault')}
         </p>
         <button
           type="button"
           className="mobile-page__cta-btn"
           onClick={() => navigate('/contact')}
         >
-          {ctaButton || 'Contact Us'}
+          {ctaButton || t('common.contactUs')}
         </button>
       </div>
 
       {/* Footer */}
       <div className="mobile-page__footer">
-        <p className="mobile-page__footer-copy">© 2026 Dinaro. All Rights Reserved.</p>
+        <p className="mobile-page__footer-copy">{t('footer.copyShort')}</p>
         <div className="mobile-page__footer-links">
           {[
-            { label: 'Terms & Conditions', href: '/terms' },
-            { label: 'Privacy Policy', href: '/privacy-policy' },
-            { label: 'Complaints', href: '/complaints' },
+            { label: t('footer.terms'), href: '/terms' },
+            { label: t('footer.privacy'), href: '/privacy-policy' },
+            { label: t('footer.complaints'), href: '/complaints' },
           ].map(({ label, href }) => (
-            <a key={label} href={href} className="mobile-page__footer-link">{label}</a>
+            <a key={href} href={href} className="mobile-page__footer-link">{label}</a>
           ))}
         </div>
       </div>

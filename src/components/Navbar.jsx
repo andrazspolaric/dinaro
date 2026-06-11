@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { imgUnion, imgGroup, productsDropdown, solutionsDropdown } from '../shared';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { usePreloadRoute } from '../hooks/usePreloadRoute';
+import { useT } from '../i18n/useT';
 import { AnimatePresence, motion } from 'motion/react';
 import './Navbar.css';
 
@@ -15,6 +16,7 @@ export default function Navbar({ activeItem }) {
 	const bp = useBreakpoint();
 	const isMobile = bp === 'mobile' || bp === 'tablet';
 	const preloadRoute = usePreloadRoute();
+	const t = useT();
 
 	const handleItemClick = (href) => {
 		if (href) {
@@ -41,7 +43,7 @@ export default function Navbar({ activeItem }) {
 				<div className="navbar-mobile">
 					<button
 						type="button"
-						aria-label="Dinaro home"
+						aria-label={t('nav.logoLabel')}
 						className="navbar-mobile__logo"
 						onClick={() => navigate('/')}
 					>
@@ -50,7 +52,7 @@ export default function Navbar({ activeItem }) {
 
 					<button
 						type="button"
-						aria-label="Open menu"
+						aria-label={t('nav.openMenu')}
 						className="navbar-mobile__hamburger"
 						onClick={() => setMenuOpen(true)}
 					>
@@ -82,7 +84,7 @@ export default function Navbar({ activeItem }) {
 								</button>
 								<button
 									type="button"
-									aria-label="Close menu"
+									aria-label={t('nav.closeMenu')}
 									className="navbar-mobile__close"
 									onClick={() => setMenuOpen(false)}
 								>
@@ -102,7 +104,7 @@ export default function Navbar({ activeItem }) {
 										className="navbar-mobile__section-btn"
 										onClick={() => setExpandedSection(s => s === 'products' ? null : 'products')}
 									>
-										<span className="navbar-mobile__section-label">Consumer</span>
+										<span className="navbar-mobile__section-label">{t('nav.customers')}</span>
 										<svg
 											width="20" height="20" viewBox="0 0 24 24" fill="none"
 											className={`navbar-mobile__section-arrow${expandedSection === 'products' ? ' navbar-mobile__section-arrow--open' : ''}`}
@@ -120,19 +122,19 @@ export default function Navbar({ activeItem }) {
 												transition={{ duration: 0.25, ease: 'easeInOut' }}
 											>
 												<div className="navbar-mobile__accordion-inner">
-													{productsDropdown.map(({ title, items }) => (
-														<div key={title}>
-															<p className="navbar-mobile__group-label">{title}</p>
+													{productsDropdown.map(({ titleKey, items }) => (
+														<div key={titleKey}>
+															<p className="navbar-mobile__group-label">{t(titleKey)}</p>
 															<div className="navbar-mobile__group-items">
-																{items.map(({ label, href }) => (
+																{items.map(({ labelKey, href }) => (
 																	<button
-																		key={label}
+																		key={labelKey}
 																		type="button"
 																		className={`navbar-mobile__item${!href ? ' navbar-mobile__item--disabled' : ''}`}
 																		onTouchStart={() => href && preloadRoute(href)}
 																		onClick={() => handleItemClick(href)}
 																	>
-																		{label}
+																		{t(labelKey)}
 																	</button>
 																))}
 															</div>
@@ -151,7 +153,7 @@ export default function Navbar({ activeItem }) {
 										className="navbar-mobile__section-btn"
 										onClick={() => setExpandedSection(s => s === 'solutions' ? null : 'solutions')}
 									>
-										<span className="navbar-mobile__section-label">Partners</span>
+										<span className="navbar-mobile__section-label">{t('nav.partners')}</span>
 										<svg
 											width="20" height="20" viewBox="0 0 24 24" fill="none"
 											className={`navbar-mobile__section-arrow${expandedSection === 'solutions' ? ' navbar-mobile__section-arrow--open' : ''}`}
@@ -169,19 +171,19 @@ export default function Navbar({ activeItem }) {
 												transition={{ duration: 0.25, ease: 'easeInOut' }}
 											>
 												<div className="navbar-mobile__accordion-inner">
-													{solutionsDropdown.map(({ title, items }) => (
-														<div key={title}>
-															<p className="navbar-mobile__group-label">{title}</p>
+													{solutionsDropdown.map(({ titleKey, items }) => (
+														<div key={titleKey}>
+															<p className="navbar-mobile__group-label">{t(titleKey)}</p>
 															<div className="navbar-mobile__group-items">
-																{items.map(({ label, href }) => (
+																{items.map(({ labelKey, href }) => (
 																	<button
-																		key={label}
+																		key={labelKey}
 																		type="button"
 																		className={`navbar-mobile__item${!href ? ' navbar-mobile__item--disabled' : ''}`}
 																		onTouchStart={() => href && preloadRoute(href)}
 																		onClick={() => handleItemClick(href)}
 																	>
-																		{label}
+																		{t(labelKey)}
 																	</button>
 																))}
 															</div>
@@ -194,8 +196,8 @@ export default function Navbar({ activeItem }) {
 								</div>
 
 								{[
-									{ label: 'Company', href: '/company' },
-									{ label: 'Contact', href: '/contact' },
+									{ label: t('nav.company'), href: '/company' },
+									{ label: t('nav.contact'), href: '/contact' },
 								].map(({ label, href }) => (
 									<button
 										key={label}
@@ -217,7 +219,7 @@ export default function Navbar({ activeItem }) {
 									onTouchStart={() => preloadRoute('/contact')}
 									onClick={() => handleItemClick('/contact')}
 								>
-									Get Started
+									{t('nav.getStarted')}
 								</button>
 							</div>
 						</motion.div>
@@ -228,7 +230,7 @@ export default function Navbar({ activeItem }) {
 	}
 
 	// ── Desktop navbar ──
-	const dropdownHeight = openNav === 'products' ? 400 : openNav === 'solutions' ? 430 : 80;
+	const dropdownHeight = openNav === 'products' ? 375 : openNav === 'solutions' ? 402 : 80;
 
 	return (
 		<>
@@ -247,14 +249,14 @@ export default function Navbar({ activeItem }) {
 
 			<nav
 				className="navbar"
-				aria-label="Main navigation"
+				aria-label={t('nav.mainNav')}
 				style={{ height: dropdownHeight }}
 				onMouseLeave={() => setOpenNav(null)}
 			>
 				<div className="navbar__inner">
 					<button
 						type="button"
-						aria-label="Dinaro home"
+						aria-label={t('nav.logoLabel')}
 						className="navbar__logo"
 						onClick={() => navigate('/')}
 					>
@@ -263,10 +265,10 @@ export default function Navbar({ activeItem }) {
 
 					<div className="navbar__links">
 						{[
-							{ label: 'Consumer', key: 'products', href: null, hasArrow: true },
-							{ label: 'Partners', key: 'solutions', href: null, hasArrow: true },
-							{ label: 'Company', key: null, href: '/company', hasArrow: false },
-							{ label: 'Contact', key: null, href: '/contact', hasArrow: false },
+							{ label: t('nav.customers'), key: 'products', href: null, hasArrow: true },
+							{ label: t('nav.partners'), key: 'solutions', href: null, hasArrow: true },
+							{ label: t('nav.company'), key: null, href: '/company', hasArrow: false },
+							{ label: t('nav.contact'), key: null, href: '/contact', hasArrow: false },
 						].map(({ label, key, href, hasArrow }) => {
 							const isActive = key && openNav === key;
 							const isHovered = hoveredNav === label;
@@ -306,81 +308,103 @@ export default function Navbar({ activeItem }) {
 						onMouseEnter={() => preloadRoute('/contact')}
 						onClick={() => navigate('/contact')}
 					>
-						<p className="navbar__cta-label">Get Started</p>
+						<p className="navbar__cta-label">{t('nav.getStarted')}</p>
 					</button>
 				</div>
 
-				{/* Products dropdown */}
-				<AnimatePresence>
+				{/* Dropdowns */}
+				<AnimatePresence mode="wait">
 					{openNav === 'products' && (
-						<div className="navbar__dropdown" role="menu">
-							{productsDropdown.map(({ title, items }, index) => (
+						<motion.div
+							key="products-dropdown"
+							className="navbar__dropdown"
+							role="menu"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.15 }}
+						>
+							{productsDropdown.map(({ titleKey, titleHref, items }, index) => (
 								<motion.div
-									key={title}
-									className="navbar__dropdown-card"
+									key={`products-${index}-${titleKey}`}
+									className={`navbar__dropdown-card${titleHref ? ' navbar__dropdown-card--clickable' : ''}`}
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
-									exit={{ opacity: 0, y: 10 }}
-									transition={{ duration: 0.25, delay: index * 0.07, ease: 'easeOut' }}
+									transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+									onClick={titleHref ? () => handleItemClick(titleHref) : undefined}
+									onMouseEnter={titleHref ? () => preloadRoute(titleHref) : undefined}
+									style={titleHref ? { cursor: 'pointer' } : undefined}
 								>
 									<div className="navbar__dropdown-thumb" />
 									<div className="navbar__dropdown-body">
-										<p className="navbar__dropdown-title">{title}</p>
+										<p className="navbar__dropdown-title">{t(titleKey)}</p>
 										<div className="navbar__dropdown-items">
-											{items.map(({ label, href }) => (
+											{items.map(({ labelKey, href }) => (
 												<button
-													key={`${title}-${label}`}
+													key={`${titleKey}-${labelKey}`}
 													type="button"
 													role="menuitem"
 													className={`navbar__dropdown-item${!href ? ' navbar__dropdown-item--disabled' : ''}`}
 													onMouseEnter={() => href && preloadRoute(href)}
-													onClick={() => handleItemClick(href)}
+													onClick={(e) => {
+														e.stopPropagation();
+														handleItemClick(href);
+													}}
 												>
-													{label}
+													{t(labelKey)}
 												</button>
 											))}
 										</div>
 									</div>
 								</motion.div>
 							))}
-						</div>
+						</motion.div>
 					)}
-				</AnimatePresence>
-
-				{/* Solutions dropdown */}
-				<AnimatePresence>
 					{openNav === 'solutions' && (
-						<div className="navbar__dropdown" role="menu">
-							{solutionsDropdown.map(({ title, items }, index) => (
+						<motion.div
+							key="solutions-dropdown"
+							className="navbar__dropdown"
+							role="menu"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+							transition={{ duration: 0.15 }}
+						>
+							{solutionsDropdown.map(({ titleKey, titleHref, items }, index) => (
 								<motion.div
-									key={title}
-									className="navbar__dropdown-card"
+									key={`solutions-${index}-${titleKey}`}
+									className={`navbar__dropdown-card${titleHref ? ' navbar__dropdown-card--clickable' : ''}`}
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
-									exit={{ opacity: 0, y: 10 }}
-									transition={{ duration: 0.25, delay: index * 0.07, ease: 'easeOut' }}
+									transition={{ duration: 0.3, delay: index * 0.05, ease: 'easeOut' }}
+									onClick={titleHref ? () => handleItemClick(titleHref) : undefined}
+									onMouseEnter={titleHref ? () => preloadRoute(titleHref) : undefined}
+									style={titleHref ? { cursor: 'pointer' } : undefined}
 								>
 									<div className="navbar__dropdown-thumb" />
 									<div className="navbar__dropdown-body">
-										<p className="navbar__dropdown-title">{title}</p>
+										<p className="navbar__dropdown-title">{t(titleKey)}</p>
 										<div className="navbar__dropdown-items">
-											{items.map(({ label, href }) => (
+											{items.map(({ labelKey, href }) => (
 												<button
-													key={`${title}-${label}`}
+													key={`${titleKey}-${labelKey}`}
 													type="button"
 													role="menuitem"
 													className={`navbar__dropdown-item${!href ? ' navbar__dropdown-item--disabled' : ''}`}
 													onMouseEnter={() => href && preloadRoute(href)}
-													onClick={() => handleItemClick(href)}
+													onClick={(e) => {
+														e.stopPropagation();
+														handleItemClick(href);
+													}}
 												>
-													{label}
+													{t(labelKey)}
 												</button>
 											))}
 										</div>
 									</div>
 								</motion.div>
 							))}
-						</div>
+						</motion.div>
 					)}
 				</AnimatePresence>
 			</nav>

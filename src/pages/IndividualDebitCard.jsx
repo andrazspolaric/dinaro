@@ -4,19 +4,14 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { MobileFeaturePage } from '../components/MobileFeaturePage';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 
 import imgVector from '../assets/world-map.svg';
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-const features = [
-  { cardSide: 'right', tag: 'DAILY USE',  title: 'Everyday Spending',        text: 'Designed to handle your daily needs, giving you a reliable and convenient way to pay in-store, online, and on the go.' },
-  { cardSide: 'left',  tag: 'CONNECTED', title: 'Connected to Your Account',  text: 'Directly linked to your Dinaro Payment account, giving you instant access to your funds whenever and wherever you need them.' },
-  { cardSide: 'right', tag: 'MOBILE',    title: 'Mobile App',                 text: 'Manage your spending, set limits, and monitor transactions in real time through the Dinaro mobile app - full control at your fingertips.' },
-  { cardSide: 'left',  tag: 'ATM',       title: 'Global ATM Access',          text: "Access your funds at partner ATMs worldwide in local currencies, so you're never left without cash no matter where you are." },
-  { cardSide: 'right', tag: 'SECURITY',  title: 'Security & Fraud Protection', text: 'Stay protected with industry-leading 3D Secure authentication and real-time fraud monitoring, keeping your card and funds safe at all times.' },
-];
+const FEATURE_SIDES = ['right', 'left', 'right', 'left', 'right'];
 
 function FeatureRow({ cardSide, tag, title, text }) {
   return (
@@ -38,13 +33,18 @@ function FeatureRow({ cardSide, tag, title, text }) {
 export default function IndividualDebitCard() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
+  const content = t('debitCards.individual');
+  const features = content.features.map((f, i) => ({ ...f, cardSide: FEATURE_SIDES[i] }));
+  const ctaTitle = t('debitCards.ctaTitle');
+
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <MobileFeaturePage
-        heroTitle="Individual Debit Card"
-        heroSubtitle="Everyday Solutions for Real Life"
+        heroTitle={content.heroTitle}
+        heroSubtitle={content.heroSubtitle}
         features={features}
-        ctaTitle="Open your payment account in just a few simple steps."
+        ctaTitle={ctaTitle}
         navigate={navigate}
       />
     );
@@ -56,8 +56,8 @@ export default function IndividualDebitCard() {
         <div className="fp__hero-bg" style={{ backgroundImage: heroBg }} />
         <div className="fp__hero-vector-wrap"><img alt="" className="fp__hero-vector" src={imgVector} /></div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title fp__hero-title--xs">Individual Debit Card</p>
-          <p className="fp__hero-subtitle">Everyday Solutions for Real Life</p>
+          <p className="fp__hero-title fp__hero-title--xs">{content.heroTitle}</p>
+          <p className="fp__hero-subtitle">{content.heroSubtitle}</p>
         </div>
       </div>
       <div className="fp__features">
@@ -66,9 +66,9 @@ export default function IndividualDebitCard() {
         ))}
       </div>
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Open your payment account in just a few simple steps.</p>
+        <p className="fp__cta-title">{ctaTitle}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
       <Footer />

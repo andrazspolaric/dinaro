@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ctaBg } from '../shared';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 import '../components/MobileFeaturePage.css';
 
 import imgVector from '../assets/contact-vector.svg';
 import imgCircle from '../assets/circle-contact.svg';
 import imgArrowExt from '../assets/arrow-ext.svg';
-import imgArrowMsg from '../assets/arrow-msg.svg';
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
@@ -41,87 +40,62 @@ function InfoCard({ title, sub, buttonLabel, arrowSrc, onButtonClick }) {
   );
 }
 
-function ContactMobile({ form, handleChange, handleSubmit, submitted, error }) {
+function ContactMobile({ t }) {
+  const cards = t('contact.cards');
+  const address = t('contact.address');
   return (
     <div className="mobile-page">
       <Navbar />
 
       <div className="mobile-page__hero" style={{ backgroundImage: heroBgMobile }}>
-        <p className="mobile-page__hero-title">Contact</p>
-        <p className="mobile-page__hero-subtitle">We're here to help. Send us a message.</p>
+        <p className="mobile-page__hero-title">{t('contact.heroTitle')}</p>
+        <p className="mobile-page__hero-subtitle">{t('contact.heroSubtitleMobile')}</p>
+      </div>
+
+      <div className="fp__contact-mobile-info-cards">
+        {cards.map(({ email, title, description }) => (
+          <div key={email} className="card fp__contact-mobile-info-card">
+            <p className="fp__contact-mobile-info-title">{title}</p>
+            <p className="fp__contact-mobile-info-text">{description}</p>
+            <button
+              type="button"
+              className="fp__contact-mobile-map-btn"
+              onClick={() => window.location.href = `mailto:${email}`}
+            >
+              {t('contact.contactButton')}
+            </button>
+          </div>
+        ))}
       </div>
 
       <div className="fp__contact-mobile-info-cards">
         <div className="card fp__contact-mobile-info-card">
-          <p className="fp__contact-mobile-info-title">Address</p>
-          <p className="fp__contact-mobile-info-text">Bravničarjeva ulica 13, 1000 Ljubljana</p>
+          <p className="fp__contact-mobile-info-title">{address.title}</p>
+          <p className="fp__contact-mobile-info-text">{address.value}</p>
           <button
             type="button"
             className="fp__contact-mobile-map-btn"
             onClick={() => window.open('https://maps.google.com/?q=Bravničarjeva+ulica+13,+1000+Ljubljana', '_blank', 'noopener')}
           >
-            View on Maps
+            {t('contact.viewOnMaps')}
           </button>
         </div>
       </div>
 
-      <form id="contact-form" onSubmit={handleSubmit} className="fp__contact-mobile-form-section">
-        <p className="fp__contact-mobile-form-heading">Send us a message</p>
-        <input type="text" placeholder="Name & Surname" value={form.name} onChange={handleChange('name')} required aria-label="Name and Surname" className="fp__contact-field--mobile" />
-        <input type="email" placeholder="Your Email Address" value={form.email} onChange={handleChange('email')} required aria-label="Email Address" className="fp__contact-field--mobile" />
-        <input type="text" placeholder="Subject" value={form.subject} onChange={handleChange('subject')} aria-label="Subject" className="fp__contact-field--mobile" />
-        <input type="text" placeholder="Choose Solution" value={form.solution} onChange={handleChange('solution')} aria-label="Choose Solution" className="fp__contact-field--mobile" />
-        <input type="text" placeholder="Company Name" value={form.company} onChange={handleChange('company')} aria-label="Company Name" className="fp__contact-field--mobile" />
-        <input type="url" placeholder="Company Website" value={form.website} onChange={handleChange('website')} aria-label="Company Website" className="fp__contact-field--mobile" />
-        <textarea
-          placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange('message')}
-          required
-          aria-label="Your Message"
-          className="fp__contact-textarea--mobile"
-        />
-        <div className="fp__contact-checkboxes">
-          {[
-            { field: 'consent1', text: 'I agree to the Terms & Conditions and Privacy Policy.' },
-            { field: 'consent2', text: 'I agree to receive marketing communications from Dinaro.' },
-          ].map(({ field, text }) => (
-            <label key={field} className="fp__contact-checkbox-label">
-              <input type="checkbox" checked={form[field]} onChange={handleChange(field)} className="fp__contact-checkbox-input" />
-              <p className="fp__contact-checkbox-text--mobile">{text}</p>
-            </label>
-          ))}
-        </div>
-        {error && <p className="fp__contact-error">{error}</p>}
-        <div className="fp__contact-submit-wrap">
-          {submitted ? (
-            <p className="fp__contact-success">Thank you! Your email client should open. If not, email us at hello@dinaro.eu</p>
-          ) : (
-            <button type="submit" className="fp__contact-mobile-submit">Send Message</button>
-          )}
-        </div>
-      </form>
-
       <div className="mobile-page__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="mobile-page__cta-title">Open your payment account in just a few simple steps.</p>
-        <button
-          type="button"
-          className="mobile-page__cta-btn"
-          onClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
-        >
-          Get in Touch
-        </button>
+        <p className="mobile-page__cta-title">{t('contact.ctaTitle')}</p>
+        <p style={{ fontFamily: 'var(--font-inter)', fontWeight: 400, fontSize: 15, lineHeight: '24px', color: 'white', opacity: 0.7, textAlign: 'center' }}>{t('contact.ctaBody')}</p>
       </div>
 
       <div className="mobile-page__footer">
-        <p className="mobile-page__footer-copy">© 2026 Dinaro. All Rights Reserved.</p>
+        <p className="mobile-page__footer-copy">{t('footer.copyShort')}</p>
         <div className="mobile-page__footer-links">
           {[
-            { label: 'Terms & Conditions', href: '/terms' },
-            { label: 'Privacy Policy', href: '/privacy-policy' },
-            { label: 'Complaints', href: '/complaints' },
+            { label: t('footer.terms'), href: '/terms' },
+            { label: t('footer.privacy'), href: '/privacy-policy' },
+            { label: t('footer.complaints'), href: '/complaints' },
           ].map(({ label, href }) => (
-            <a key={label} href={href} className="mobile-page__footer-link">{label}</a>
+            <a key={href} href={href} className="mobile-page__footer-link">{label}</a>
           ))}
         </div>
       </div>
@@ -130,43 +104,17 @@ function ContactMobile({ form, handleChange, handleSubmit, submitted, error }) {
 }
 
 export default function Contact() {
-  const navigate = useNavigate();
-  const [form, setForm] = useState({
-    name: '', email: '', subject: '', solution: '',
-    company: '', website: '', message: '',
-    consent1: false, consent2: false,
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-
-  const handleChange = (field) => (e) => {
-    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-    setForm(prev => ({ ...prev, [field]: value }));
-    setError('');
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-      setError('Please fill in your name, email, and message.');
-      return;
-    }
-    if (!form.consent1) {
-      setError('Please accept the terms to continue.');
-      return;
-    }
-    const subject = encodeURIComponent(form.subject || 'Contact from Dinaro website');
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\nWebsite: ${form.website}\nSolution: ${form.solution}\n\n${form.message}`
-    );
-    window.location.href = `mailto:hello@dinaro.eu?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-  };
-
   const bp = useBreakpoint();
+  const t = useT();
+
   if (bp === 'mobile' || bp === 'tablet') {
-    return <ContactMobile form={form} handleChange={handleChange} handleSubmit={handleSubmit} submitted={submitted} error={error} />;
+    return <ContactMobile t={t} />;
   }
+
+  const cards = t('contact.cards');
+  const address = t('contact.address');
+  const contactButton = t('contact.contactButton');
+  const viewOnMaps = t('contact.viewOnMaps');
 
   return (
     <div className="fp">
@@ -178,80 +126,36 @@ export default function Contact() {
           <img alt="" className="fp__hero-vector" src={imgVector} />
         </div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title">Contact</p>
+          <p className="fp__hero-title">{t('contact.heroTitle')}</p>
         </div>
       </div>
 
-      <div className="fp__contact-info-row">
+      <div className="fp__contact-info-row fp__contact-info-row--four">
+        {cards.map(({ email, title, description }) => (
+          <InfoCard
+            key={email}
+            title={title}
+            sub={description}
+            buttonLabel={contactButton}
+            arrowSrc={imgArrowExt}
+            onButtonClick={() => window.location.href = `mailto:${email}`}
+          />
+        ))}
+      </div>
+
+      <div className="fp__contact-info-row fp__contact-info-row--single">
         <InfoCard
-          title="Address"
-          sub="Bravničarjeva ulica 13, 1000 Ljubljana"
-          buttonLabel="View on Maps"
+          title={address.title}
+          sub={address.value}
+          buttonLabel={viewOnMaps}
           arrowSrc={imgArrowExt}
           onButtonClick={() => window.open('https://maps.google.com/?q=Bravničarjeva+ulica+13,+1000+Ljubljana', '_blank', 'noopener')}
         />
-        <InfoCard
-          title="Email"
-          sub="What solutions are you looking for?"
-          buttonLabel="Send a Message"
-          arrowSrc={imgArrowMsg}
-          onButtonClick={() => document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' })}
-        />
       </div>
 
-      <p className="fp__contact-heading">Send us a message</p>
-
-      <form id="contact-form" className="card fp__contact-form-wrap" onSubmit={handleSubmit}>
-        <div className="fp__contact-form-row">
-          <input type="text" placeholder="Name & Surname" value={form.name} onChange={handleChange('name')} required aria-label="Name and Surname" className="fp__contact-field" />
-          <input type="email" placeholder="Your Email Address" value={form.email} onChange={handleChange('email')} required aria-label="Email Address" className="fp__contact-field" />
-        </div>
-        <div className="fp__contact-form-row">
-          <input type="text" placeholder="Subject" value={form.subject} onChange={handleChange('subject')} aria-label="Subject" className="fp__contact-field" />
-          <input type="text" placeholder="Choose Solution" value={form.solution} onChange={handleChange('solution')} aria-label="Choose Solution" className="fp__contact-field" />
-        </div>
-        <div className="fp__contact-form-row">
-          <input type="text" placeholder="Company Name" value={form.company} onChange={handleChange('company')} aria-label="Company Name" className="fp__contact-field" />
-          <input type="url" placeholder="Company Website" value={form.website} onChange={handleChange('website')} aria-label="Company Website" className="fp__contact-field" />
-        </div>
-        <textarea
-          placeholder="Your Message"
-          value={form.message}
-          onChange={handleChange('message')}
-          required
-          aria-label="Your Message"
-          className="fp__contact-textarea"
-        />
-        <div className="fp__contact-checkboxes">
-          {[
-            { field: 'consent1', text: 'I agree to the Terms & Conditions and Privacy Policy. Dinaro may use my information to respond to my inquiry.' },
-            { field: 'consent2', text: 'I agree to receive marketing communications from Dinaro about products, services, and industry insights.' },
-          ].map(({ field, text }) => (
-            <label key={field} className="fp__contact-checkbox-label">
-              <input type="checkbox" checked={form[field]} onChange={handleChange(field)} className="fp__contact-checkbox-input" />
-              <p className="fp__contact-checkbox-text">{text}</p>
-            </label>
-          ))}
-        </div>
-        {error && <p className="fp__contact-error">{error}</p>}
-        <div className="fp__contact-submit-wrap">
-          {submitted ? (
-            <p className="fp__contact-success">
-              Thank you! Your email client should open with a pre-filled message. If not, email us directly at hello@dinaro.eu
-            </p>
-          ) : (
-            <button type="submit" className="fp__contact-submit-btn">
-              <p className="fp__contact-submit-label">Send Message</p>
-            </button>
-          )}
-        </div>
-      </form>
-
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Open your payment account in just a few simple steps.</p>
-        <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
-        </button>
+        <p className="fp__cta-title">{t('contact.ctaTitle')}</p>
+        <p style={{ fontFamily: 'var(--font-inter)', fontWeight: 400, fontSize: 18, lineHeight: '28px', color: 'white', opacity: 0.7, textAlign: 'center', width: 675, alignSelf: 'center' }}>{t('contact.ctaBody')}</p>
       </div>
 
       <Footer />

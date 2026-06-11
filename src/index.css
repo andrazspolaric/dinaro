@@ -49,6 +49,7 @@ html {
 #root {
   width: 100%;
   min-width: 0;
+  max-width: var(--canvas-width);
 }
 
 body {

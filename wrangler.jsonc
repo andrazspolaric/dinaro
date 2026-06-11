@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dinaro-landing",
+  "compatibility_date": "2026-06-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  },
+  // To attach dinaro.si as a custom domain: first delete the existing externally-managed
+  // A/CNAME records for the apex (and www) in the Cloudflare DNS dashboard, then uncomment:
+  "routes": [
+    { "pattern": "dinaro.si", "custom_domain": true },
+    { "pattern": "www.dinaro.si", "custom_domain": true }
+  ]
+}

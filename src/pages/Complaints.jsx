@@ -137,8 +137,8 @@ export default function Complaints() {
             The full appeal procedure is described in our{' '}
             <button type="button" onClick={() => navigate('/terms')} className="complaints__terms-link">
               Terms &amp; Conditions
-            </button>
-            . Dinaro will process the data included in your complaint to contact you and manage your case.
+            </button>.
+			  <br/>Dinaro will process the data included in your complaint to contact you and manage your case.
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export default function Complaints() {
             <div className="card complaints__card">
               <p className="complaints__subheading">How long does it take to handle a complaint?</p>
               <p className="complaints__text">
-                All complaints concerning payment services — such as transfers and card transactions — will be resolved within <strong>15 business days</strong>, per the European Payment Services Directive II (PSD2).
+                All complaints concerning payment services - such as transfers and card transactions - will be resolved within <strong>15 business days</strong>, per the European Payment Services Directive II (PSD2).
               </p>
               <p className="complaints__text">
                 If we need more time to assess your complaint, we will let you know, but we must provide our final response within <strong>35 business days</strong>.

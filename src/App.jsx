@@ -1,7 +1,9 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'motion/react';
+import { AnimatePresence, MotionConfig } from 'motion/react';
 import PageTransition from './components/PageTransition';
+import AccessibilityToggle, { useA11yState } from './components/AccessibilityToggle';
+import { useT } from './i18n/useT';
 
 const CANVAS_WIDTH = 1728;
 const DESKTOP_MIN = 1025;
@@ -40,6 +42,10 @@ const PaymentModules          = lazy(() => import('./pages/PaymentModules'));
 const WhitelabelOnboarding   = lazy(() => import('./pages/WhitelabelOnboarding'));
 const WhitelabelRamp         = lazy(() => import('./pages/WhitelabelRamp'));
 const WhitelabelCustom       = lazy(() => import('./pages/WhitelabelCustom'));
+const WhitelabelApplications = lazy(() => import('./pages/WhitelabelApplications'));
+const PaymentAccounts        = lazy(() => import('./pages/PaymentAccounts'));
+const DebitCards             = lazy(() => import('./pages/DebitCards'));
+const Acquiring              = lazy(() => import('./pages/Acquiring'));
 const NotFound                = lazy(() => import('./pages/NotFound'));
 
 function PageLoader() {
@@ -64,12 +70,19 @@ function AnimatedRoutes() {
 		<AnimatePresence mode="wait">
 			<Routes location={location} key={location.pathname}>
 				<Route path="/" element={<PageTransition><Homepage /></PageTransition>} />
+				<Route path="/products/payment-accounts" element={<PageTransition><PaymentAccounts /></PageTransition>} />
+				<Route path="/products/payment-accounts/individual" element={<PageTransition><Individuals /></PageTransition>} />
+				<Route path="/products/payment-accounts/business" element={<PageTransition><BusinessAccount /></PageTransition>} />
 				<Route path="/products/individuals" element={<PageTransition><Individuals /></PageTransition>} />
 				<Route path="/products/business-account" element={<PageTransition><BusinessAccount /></PageTransition>} />
+				<Route path="/products/debit-cards" element={<PageTransition><DebitCards /></PageTransition>} />
 				<Route path="/products/debit-cards/individual" element={<PageTransition><IndividualDebitCard /></PageTransition>} />
 				<Route path="/products/debit-cards/business" element={<PageTransition><BusinessDebitCard /></PageTransition>} />
 				<Route path="/products/emt" element={<PageTransition><EMT /></PageTransition>} />
+				<Route path="/products/emt/v2" element={<PageTransition><EMT variant="v2" /></PageTransition>} />
+				<Route path="/products/acquiring" element={<PageTransition><Acquiring /></PageTransition>} />
 				<Route path="/products/acquiring/e-commerce" element={<PageTransition><AcquiringECommerce /></PageTransition>} />
+				<Route path="/products/acquiring/payment-modules" element={<PageTransition><PaymentModules /></PageTransition>} />
 				<Route path="/solutions/banking-api" element={<PageTransition><BankingAPI /></PageTransition>} />
 				<Route path="/solutions/cards-api" element={<PageTransition><CardsAPI /></PageTransition>} />
 				<Route path="/company" element={<PageTransition><Company /></PageTransition>} />
@@ -77,7 +90,7 @@ function AnimatedRoutes() {
 				<Route path="/privacy-policy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
 				<Route path="/terms" element={<PageTransition><TermsConditions /></PageTransition>} />
 				<Route path="/complaints" element={<PageTransition><Complaints /></PageTransition>} />
-				<Route path="/products/acquiring/payment-modules" element={<PageTransition><PaymentModules /></PageTransition>} />
+				<Route path="/solutions/whitelabel" element={<PageTransition><WhitelabelApplications /></PageTransition>} />
 				<Route path="/solutions/whitelabel/onboarding" element={<PageTransition><WhitelabelOnboarding /></PageTransition>} />
 				<Route path="/solutions/whitelabel/ramp" element={<PageTransition><WhitelabelRamp /></PageTransition>} />
 				<Route path="/solutions/whitelabel/custom" element={<PageTransition><WhitelabelCustom /></PageTransition>} />
@@ -89,9 +102,22 @@ function AnimatedRoutes() {
 
 export default function App() {
 	useViewportScale();
+	const a11y = useA11yState();
+	const t = useT();
+
+	useEffect(() => {
+		document.documentElement.lang = a11y.language;
+		document.title = t('meta.title');
+	}, [a11y.language, t]);
+
 	return (
-		<Suspense fallback={<PageLoader />}>
-			<AnimatedRoutes />
-		</Suspense>
+		<MotionConfig reducedMotion={a11y.hideAnimations ? 'always' : 'never'}>
+			<div className="a11y-content-root">
+				<Suspense fallback={<PageLoader />}>
+					<AnimatedRoutes />
+				</Suspense>
+			</div>
+			<AccessibilityToggle />
+		</MotionConfig>
 	);
 }

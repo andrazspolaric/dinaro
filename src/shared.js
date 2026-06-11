@@ -36,15 +36,64 @@ export const s = {
 export const ctaBg = `linear-gradient(0deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1680 416' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad3)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad3' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-29.717 35.644 -75.283 -14.07 1137.2 208.23)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
 // ── Nav dropdown data ──────────────────────────────────────────────
+// Shape: { titleKey, titleHref, items: [{ labelKey, href }] }
+// Labels resolved at render time via useT(). hrefs do not translate.
 export const productsDropdown = [
-  { title: 'Payment Accounts', items: [{ label: 'Individual', href: '/products/individuals' }, { label: 'Business', href: '/products/business-account' }] },
-  { title: 'Debit Cards', items: [{ label: 'Individual', href: '/products/debit-cards/individual' }, { label: 'Business', href: '/products/debit-cards/business' }] },
-  { title: 'Crypto', items: [{ label: 'E-Money Tokens', href: '/products/emt' }] },
-  { title: 'Acquiring', items: [{ label: 'E-Commerce', href: '/products/acquiring/e-commerce' }, { label: 'Payment Modules', href: '/products/acquiring/payment-modules' }] },
+  {
+    titleKey: 'nav.products.paymentAccounts',
+    titleHref: '/products/payment-accounts',
+    items: [
+      { labelKey: 'nav.products.paymentAccountsIndividual', href: '/products/payment-accounts/individual' },
+      { labelKey: 'nav.products.paymentAccountsBusiness', href: '/products/payment-accounts/business' },
+    ],
+  },
+  {
+    titleKey: 'nav.products.debitCards',
+    titleHref: '/products/debit-cards',
+    items: [
+      { labelKey: 'nav.products.debitCardsIndividual', href: '/products/debit-cards/individual' },
+      { labelKey: 'nav.products.debitCardsBusiness', href: '/products/debit-cards/business' },
+    ],
+  },
+  {
+    titleKey: 'nav.products.emt',
+    titleHref: '/products/emt',
+    items: [
+      { labelKey: 'nav.products.emtIssuing', href: '/products/emt' },
+    ],
+  },
+  {
+    titleKey: 'nav.products.acquiring',
+    titleHref: '/products/acquiring',
+    items: [
+      { labelKey: 'nav.products.acquiringECommerce', href: '/products/acquiring/e-commerce' },
+      { labelKey: 'nav.products.acquiringPaymentModules', href: '/products/acquiring/payment-modules' },
+    ],
+  },
 ];
 
 export const solutionsDropdown = [
-  { title: 'Banking-as-a-Service', items: [{ label: 'Banking API', href: '/solutions/banking-api' }] },
-  { title: 'Card Issuing', items: [{ label: 'Cards API', href: '/solutions/cards-api' }] },
-  { title: 'White-Label Applications', items: [{ label: 'Onboarding', href: '/solutions/whitelabel/onboarding' }, { label: 'Ramp', href: '/solutions/whitelabel/ramp' }, { label: 'Custom Solutions', href: '/solutions/whitelabel/custom' }] },
+  {
+    titleKey: 'nav.solutions.paymentAccountAaS',
+    titleHref: '/solutions/banking-api',
+    items: [
+      { labelKey: 'nav.solutions.paymentAccountApi', href: '/solutions/banking-api' },
+    ],
+  },
+  {
+    titleKey: 'nav.solutions.cardIssuing',
+    titleHref: '/solutions/cards-api',
+    items: [
+      { labelKey: 'nav.solutions.cardsApi', href: '/solutions/cards-api' },
+    ],
+  },
+  {
+    titleKey: 'nav.solutions.fintechServices',
+    titleHref: '/solutions/whitelabel',
+    items: [
+      { labelKey: 'nav.solutions.onboarding', href: '/solutions/whitelabel/onboarding' },
+      { labelKey: 'nav.solutions.ramp', href: '/solutions/whitelabel/ramp' },
+      { labelKey: 'nav.solutions.customSolutions', href: '/solutions/whitelabel/custom' },
+    ],
+  },
 ];

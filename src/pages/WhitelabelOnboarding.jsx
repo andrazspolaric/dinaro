@@ -4,17 +4,14 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
 import { MobileFeaturePage } from '../components/MobileFeaturePage';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 
 import imgVector from '../assets/api-vector.svg';
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-const features = [
-  { cardSide: 'right', tag: 'WHITE-LABEL',    title: 'Your Brand, Our Technology',  text: "One way to make a quick entry into your own business is white labeling - selling products or services developed by Dinaro. Whitelabel Onboarding and customize it with your own designs or branding that fits your needs." },
-  { cardSide: 'left',  tag: 'COMPLIANCE',     title: 'Fully Compliant by Design',   text: "Every white-label product is built on top of Dinaro's regulated infrastructure. Skip the lengthy licensing process and launch with the confidence of a fully compliant, audited platform behind you.\n\nAll necessary regulatory requirements are handled at the infrastructure level, so you can focus on your product." },
-  { cardSide: 'right', tag: 'IMPLEMENTATION', title: 'Fast Time to Market',         text: "Go live in weeks, not months. Our white-label solutions are API-ready and designed for rapid deployment - so you can focus on growing your business instead of building from scratch.\n\nPre-built flows, documentation, and dedicated onboarding support get you to launch faster." },
-];
+const FEATURE_SIDES = ['right', 'left', 'right'];
 
 function FeatureRow({ cardSide, tag, title, text }) {
   return (
@@ -36,14 +33,18 @@ function FeatureRow({ cardSide, tag, title, text }) {
 export default function WhitelabelOnboarding() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
+  const content = t('whitelabel.onboarding');
+  const features = content.features.map((f, i) => ({ ...f, cardSide: FEATURE_SIDES[i] }));
+
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <MobileFeaturePage
-        heroTitle="Whitelabel Onboarding"
-        heroSubtitle="Launch your own branded financial product fast, built on Dinaro's compliant infrastructure."
+        heroTitle={content.heroTitle}
+        heroSubtitle={content.heroSubtitle}
         features={features}
-        ctaTitle="Start Your White-Label Journey"
-        ctaButton="Contact Us"
+        ctaTitle={content.ctaTitle}
+        ctaButton={t('common.contactUs')}
         navigate={navigate}
       />
     );
@@ -55,8 +56,8 @@ export default function WhitelabelOnboarding() {
         <div className="fp__hero-bg" style={{ backgroundImage: heroBg }} />
         <div className="fp__hero-vector-wrap"><img alt="" className="fp__hero-vector" src={imgVector} /></div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title fp__hero-title--xs">Whitelabel Onboarding</p>
-          <p className="fp__hero-subtitle">Launch your own branded financial product fast, built on Dinaro's compliant infrastructure.</p>
+          <p className="fp__hero-title fp__hero-title--xs">{content.heroTitle}</p>
+          <p className="fp__hero-subtitle">{content.heroSubtitle}</p>
         </div>
       </div>
       <div className="fp__features">
@@ -65,9 +66,9 @@ export default function WhitelabelOnboarding() {
         ))}
       </div>
       <div className="fp__cta" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Start Your White-Label Journey</p>
+        <p className="fp__cta-title">{content.ctaTitle}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
       <Footer />

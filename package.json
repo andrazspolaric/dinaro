@@ -1,26 +1,29 @@
 {
-  "name": "dinaro",
+  "name": "dinaro-v2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html",
+    "build": "vite build",
     "preview": "vite preview",
-    "optimize-svgs": "svgo -r src/assets/ -o src/assets/"
+    "optimize-svgs": "svgo -r src/assets/ -o src/assets/",
+    "deploy": "vite build && wrangler deploy",
+    "cf:dev": "wrangler dev",
+    "cf:tail": "wrangler tail"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GateHubNet/dinaro.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tech Team @ GateHub",
   "license": "ISC",
   "type": "module",
   "bugs": {
     "url": "https://github.com/GateHubNet/dinaro/issues"
   },
-  "homepage": "https://github.com/GateHubNet/dinaro#readme",
+  "homepage": "https://github.com/GateHubNet/dinaro",
   "dependencies": {
     "framer-motion": "^12.38.0",
     "gsap": "^3.14.2",
@@ -34,6 +37,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.3"
+    "vite": "^8.0.3",
+    "wrangler": "^4.99.0"
   }
 }
