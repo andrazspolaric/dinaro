@@ -3,6 +3,7 @@ import { ctaBg } from '../shared';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useBreakpoint } from '../hooks/useBreakpoint';
+import { useT } from '../i18n/useT';
 import '../components/FeaturePage.css';
 import '../components/MobileFeaturePage.css';
 
@@ -17,33 +18,34 @@ const html = "<p style=\"text-align: center;\">PAYWISER POLITIKA ZASEBNOSTI</p>\
 export default function PrivacyPolicy() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
+  const t = useT();
 
   if (bp === 'mobile' || bp === 'tablet') {
     return (
       <div className="mobile-page">
         <Navbar />
         <div className="mobile-page__hero" style={{ backgroundImage: heroBgMobile }}>
-          <p className="mobile-page__hero-title">Privacy Policy</p>
+          <p className="mobile-page__hero-title">{t('footer.privacy')}</p>
         </div>
         <div
           className="terms-content fp__content-mobile fp__content-mobile-text"
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <div className="mobile-page__cta" style={{ backgroundImage: ctaBg }}>
-          <p className="mobile-page__cta-title">Do you have questions?</p>
+          <p className="mobile-page__cta-title">{t('common.questionsTitle')}</p>
           <button type="button" className="mobile-page__cta-btn" onClick={() => navigate('/contact')}>
-            Contact Us
+            {t('common.contactUs')}
           </button>
         </div>
         <div className="mobile-page__footer">
-          <p className="mobile-page__footer-copy">© 2026 Dinaro. All Rights Reserved.</p>
+          <p className="mobile-page__footer-copy">{t('footer.copyShort')}</p>
           <div className="mobile-page__footer-links">
             {[
-              { label: 'Terms & Conditions', href: '/terms' },
-              { label: 'Privacy Policy', href: '/privacy-policy' },
-              { label: 'Complaints', href: '/complaints' },
+              { label: t('footer.terms'), href: '/terms' },
+              { label: t('footer.privacy'), href: '/privacy-policy' },
+              { label: t('footer.complaints'), href: '/complaints' },
             ].map(({ label, href }) => (
-              <a key={label} href={href} className="mobile-page__footer-link">{label}</a>
+              <a key={href} href={href} className="mobile-page__footer-link">{label}</a>
             ))}
           </div>
         </div>
@@ -61,7 +63,7 @@ export default function PrivacyPolicy() {
           <img alt="" className="fp__hero-vector" src={imgVector} />
         </div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title">Privacy Policy</p>
+          <p className="fp__hero-title">{t('footer.privacy')}</p>
         </div>
       </div>
 
@@ -74,9 +76,9 @@ export default function PrivacyPolicy() {
       </div>
 
       <div className="fp__cta fp__cta--legal" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Do you have questions?</p>
+        <p className="fp__cta-title">{t('common.questionsTitle')}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
 

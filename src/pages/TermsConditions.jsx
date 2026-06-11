@@ -9,6 +9,7 @@ import '../components/MobileFeaturePage.css';
 
 import imgVector from '../assets/terms-vector.svg';
 import { useA11yState } from '../components/AccessibilityToggle';
+import { useT } from '../i18n/useT';
 import slSections from '../data/termsData.js';
 import enSections from '../data/termsDataEn.js';
 
@@ -48,6 +49,7 @@ export default function TermsConditions() {
   const navigate = useNavigate();
   const bp = useBreakpoint();
   const { language } = useA11yState();
+  const t = useT();
   const sections = language === 'sl' ? slSections : enSections;
   const slugs = useMemo(() => buildSlugs(sections), [sections]);
   const [rawIndex, setRawIndex] = useState(() =>
@@ -81,7 +83,7 @@ export default function TermsConditions() {
       <div className="mobile-page">
         <Navbar />
         <div className="mobile-page__hero" style={{ backgroundImage: heroBgMobile }}>
-          <p className="mobile-page__hero-title">Terms &amp; Conditions</p>
+          <p className="mobile-page__hero-title">{t('footer.terms')}</p>
         </div>
         <div className="terms__mobile-tabs">
           {sections.map(({ title: t }, i) => (
@@ -103,20 +105,20 @@ export default function TermsConditions() {
           />
         </div>
         <div className="mobile-page__cta" style={{ backgroundImage: ctaBg }}>
-          <p className="mobile-page__cta-title">Do you have questions?</p>
+          <p className="mobile-page__cta-title">{t('common.questionsTitle')}</p>
           <button type="button" className="mobile-page__cta-btn" onClick={() => navigate('/contact')}>
-            Contact Us
+            {t('common.contactUs')}
           </button>
         </div>
         <div className="mobile-page__footer">
-          <p className="mobile-page__footer-copy">© 2026 Dinaro. All Rights Reserved.</p>
+          <p className="mobile-page__footer-copy">{t('footer.copyShort')}</p>
           <div className="mobile-page__footer-links">
             {[
-              { label: 'Terms & Conditions', href: '/terms' },
-              { label: 'Privacy Policy', href: '/privacy-policy' },
-              { label: 'Complaints', href: '/complaints' },
+              { label: t('footer.terms'), href: '/terms' },
+              { label: t('footer.privacy'), href: '/privacy-policy' },
+              { label: t('footer.complaints'), href: '/complaints' },
             ].map(({ label, href }) => (
-              <a key={label} href={href} className="mobile-page__footer-link">{label}</a>
+              <a key={href} href={href} className="mobile-page__footer-link">{label}</a>
             ))}
           </div>
         </div>
@@ -134,7 +136,7 @@ export default function TermsConditions() {
           <img alt="" className="fp__hero-vector" src={imgVector} />
         </div>
         <div className="fp__hero-text">
-          <p className="fp__hero-title">Terms &amp; Conditions</p>
+          <p className="fp__hero-title">{t('footer.terms')}</p>
         </div>
       </div>
 
@@ -168,9 +170,9 @@ export default function TermsConditions() {
       </div>
 
       <div className="fp__cta fp__cta--legal" style={{ backgroundImage: ctaBg }}>
-        <p className="fp__cta-title">Do you have questions?</p>
+        <p className="fp__cta-title">{t('common.questionsTitle')}</p>
         <button type="button" className="fp__cta-btn" onClick={() => navigate('/contact')}>
-          <p className="fp__cta-btn-label">Contact Us</p>
+          <p className="fp__cta-btn-label">{t('common.contactUs')}</p>
         </button>
       </div>
 
