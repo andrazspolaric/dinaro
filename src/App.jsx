@@ -10,20 +10,26 @@ const DESKTOP_MIN = 1025;
 
 function useViewportScale() {
 	useEffect(() => {
+		const root = document.documentElement;
+		// If zoom is unsupported (older Firefox), it silently does nothing —
+		// the var must stay 1 or full-bleed layouts would divide by a scale
+		// that was never applied.
+		const zoomSupported = typeof CSS !== 'undefined' && CSS.supports('zoom', '1');
 		function applyScale() {
-			if (window.innerWidth >= DESKTOP_MIN) {
-				const scale = Math.min(1, window.innerWidth / CANVAS_WIDTH);
-				document.documentElement.style.zoom = String(scale);
-				// vw units ignore zoom, so full-bleed tricks (footer) divide by this
-				document.documentElement.style.setProperty('--viewport-zoom', String(scale));
-			} else {
-				document.documentElement.style.zoom = '1';
-				document.documentElement.style.setProperty('--viewport-zoom', '1');
-			}
+			const scale = zoomSupported && window.innerWidth >= DESKTOP_MIN
+				? Math.min(1, window.innerWidth / CANVAS_WIDTH)
+				: 1;
+			root.style.zoom = String(scale);
+			// vw units ignore zoom, so full-bleed tricks (footer) divide by this
+			root.style.setProperty('--viewport-zoom', String(scale));
 		}
 		applyScale();
 		window.addEventListener('resize', applyScale);
-		return () => window.removeEventListener('resize', applyScale);
+		return () => {
+			window.removeEventListener('resize', applyScale);
+			root.style.zoom = '';
+			root.style.setProperty('--viewport-zoom', '1');
+		};
 	}, []);
 }
 
