@@ -667,7 +667,7 @@ export const strings = {
 				heroTitle: 'Osebni račun',
 				heroSubtitle: 'Vse, kar potrebujete za upravljanje denarja, na enem mestu.',
 				features: [
-					{ tag: 'BANČNIŠTVO', title: 'Vaš osebni račun', text: 'Z vašim slovenskim IBAN-om upravljajte, pošiljajte in prejemajte sredstva v evrih, vse na enem mestu.' },
+					{ tag: 'PLAČILNI RAČUNI', title: 'Vaš osebni račun', text: 'Z vašim slovenskim IBAN-om upravljajte, pošiljajte in prejemajte sredstva v evrih, vse na enem mestu.' },
 					{ tag: 'SEPA', title: 'Plačila', text: 'Podpora SEPA in Instant SEPA prenosom za hitre in varne transakcije v evrih po Evropi.' },
 					{ tag: 'KARTICA', title: 'Dinaro Mastercard® debetna kartica', text: 'Dodajte kartico in plačujte na 30+ milijonov POS lokacijah po svetu in na spletu, sprejeta povsod, kjer je sprejet Mastercard, z varnimi brezstičnimi plačili.' },
 				],
