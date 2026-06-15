@@ -831,11 +831,11 @@ export const strings = {
 			],
 			whyCards: [
 				{ title: 'Ločeni računi', text: 'Sredstva strank zaščitena na ločenih računih pri partnerskih bankah.' },
-				{ title: 'Polna skladnost', text: 'Licencirana ustanova za e-denar pod nadzorom Banke Slovenije, z dovoljenjem za poslovanje po celotnem EGP.' },
+				{ title: 'Polna skladnost', text: 'Licencirana ustanova za e-denar pod nadzorom Banke Slovenije v EGP.' },
 				{ title: 'API-First tehnologija', text: 'Sodobna API infrastruktura, zasnovana za tekočo integracijo in skalabilnost.' },
 				{ title: 'AML in zaščita pred goljufijami', text: 'Celovito preprečevanje pranja denarja in zaščita pred goljufijami sta vgrajena.' },
 				{ title: '360° podpora', text: 'Celovita ekosistemska podpora, ki povezuje ključne partnerje v plačilni industriji.' },
-				{ title: 'SEPA integracija', text: 'Neposreden dostop do SEPA plačilnih poti za učinkovite evropske transakcije.' },
+				{ title: 'SEPA integracija', text: 'Neposreden dostop do SEPA in Instant SEPA plačilnih poti za hitre in učinkovite transakcije po vsej Evropi.' },
 			],
 		},
 		cardsApi: {
