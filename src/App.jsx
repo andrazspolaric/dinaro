@@ -76,7 +76,9 @@ function PageLoader() {
 function AnimatedRoutes() {
 	const location = useLocation();
 	return (
-		<AnimatePresence mode="wait">
+		// Reset scroll when the outgoing page finishes exiting, so each route
+		// opens at the top instead of inheriting the previous scroll position.
+		<AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
 			<Routes location={location} key={location.pathname}>
 				<Route path="/" element={<PageTransition><Homepage /></PageTransition>} />
 				<Route path="/products/payment-accounts" element={<PageTransition><PaymentAccounts /></PageTransition>} />
