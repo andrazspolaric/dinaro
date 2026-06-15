@@ -594,7 +594,7 @@ export const strings = {
 		home: {
 			hero: {
 				title: 'Fintech po meri.',
-				subtitle: 'Drugačen fintech. Zgradite plačilne račune svoje znamke, izdajte debetne kartice in poslujte globalno, že danes.',
+				subtitle: 'Fintech na novo. Ustvarite plačilne račune pod lastno blagovno znamko, izdajte debetne kartice in poslujte globalno, že danes.',
 				cta: 'Izdajte svojo prvo kartico',
 			},
 			features: [
@@ -973,7 +973,7 @@ export const strings = {
 			heroTitle: 'Stik',
 			heroSubtitleMobile: 'Tu smo, da pomagamo. Pošljite nam sporočilo.',
 			ctaTitle: 'Fintech po meri.',
-			ctaBody: 'Drugačen fintech. Zgradite plačilne račune svoje znamke, izdajte debetne kartice in poslujte globalno, že danes.',
+			ctaBody: 'Fintech na novo. Ustvarite plačilne račune pod lastno blagovno znamko, izdajte debetne kartice in poslujte globalno, že danes.',
 			contactButton: 'Stik',
 			viewOnMaps: 'Poglej na zemljevidu',
 			cards: [
