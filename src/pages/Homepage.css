@@ -732,7 +732,9 @@
 	flex-direction: column;
 	gap: 16px;
 	align-items: center;
-	justify-content: center;
+	/* Top-anchor content so the icon and title align across cards even when a
+	   description wraps to more lines than its neighbours. */
+	justify-content: flex-start;
 	padding: 38px;
 	text-align: center;
 }
