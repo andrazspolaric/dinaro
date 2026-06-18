@@ -264,7 +264,7 @@ export default function Homepage() {
 			<div className="hp__solutions">
 				<div className="hp__solutions-row">
 					{[0, 1, 2].map((idx, index) => {
-						const { title, text } = t('home.solutionCards')[idx];
+						const { title, text, image } = t('home.solutionCards')[idx];
 						return (
 							<motion.div
 								key={title}
@@ -275,7 +275,7 @@ export default function Homepage() {
 								viewport={{ once: true, amount: 0.15 }}
 								transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
 							>
-								<div className="hp__solution-spacer" />
+								<div className="hp__solution-spacer" style={{ backgroundImage: `url(${image})` }}/>
 								<div className="hp__solution-content">
 									<p className="hp__solution-title">{title}</p>
 									<p className="hp__solution-text">{text}</p>
@@ -290,7 +290,7 @@ export default function Homepage() {
 						{ width: 392, idx: 5 },
 						{ width: 392, idx: 4 },
 					].map(({ width, idx }, index) => {
-						const { title, text } = t('home.solutionCards')[idx];
+						const { title, text, image } = t('home.solutionCards')[idx];
 						return (
 							<motion.div
 								key={title}
@@ -301,7 +301,7 @@ export default function Homepage() {
 								viewport={{ once: true, amount: 0.15 }}
 								transition={{ duration: 0.5, delay: index * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
 							>
-								<div className="hp__solution-spacer" />
+								<div className="hp__solution-spacer" style={{ backgroundImage: `url(${image})` }}/>
 								<div className="hp__solution-content">
 									<p className="hp__solution-title">{title}</p>
 									<p className="hp__solution-text">{text}</p>

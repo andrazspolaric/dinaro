@@ -17,7 +17,7 @@ const FEATURE_SIDES_BUSINESS = ['right', 'left', 'right'];
 
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
-function FeatureRow({ cardSide, tag, badge, title, text }) {
+function FeatureRow({ cardSide, tag, badge, title, text, image }) {
 	return (
 		<div className={`fp__feature-row${cardSide === 'left' ? ' fp__feature-row--reversed' : ''}`}>
 			<div className="fp__feature-text-side">
@@ -31,7 +31,7 @@ function FeatureRow({ cardSide, tag, badge, title, text }) {
 				</div>
 			</div>
 			<div className="card fp__feature-card-side">
-				<div className="fp__feature-card-thumb" />
+				<div className="fp__feature-card-thumb" style={{ backgroundImage: `url(${image})` }}/>
 			</div>
 		</div>
 	);
@@ -113,8 +113,8 @@ export default function PaymentAccounts() {
 					exit={{ opacity: 0, x: -30 * direction }}
 					transition={{ duration: 0.2, ease: 'easeInOut' }}
 				>
-					{features.map(({ cardSide, tag, badge, title, text }) => (
-						<FeatureRow key={tag} cardSide={cardSide} tag={tag} badge={badge} title={title} text={text} />
+					{features.map(({ cardSide, tag, badge, title, text, image }) => (
+						<FeatureRow key={tag} cardSide={cardSide} tag={tag} badge={badge} title={title} text={text} image={image} />
 					))}
 				</motion.div>
 			</AnimatePresence>
