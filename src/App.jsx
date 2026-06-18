@@ -73,6 +73,17 @@ function PageLoader() {
 	);
 }
 
+// Reset scroll to the top on navigation. Without this, clicking a footer link
+// (where the user is already scrolled to the bottom) opens the next page still
+// scrolled down. Hash deep-links (e.g. /terms#section) are left to the page.
+function ScrollToTop() {
+	const { pathname, hash } = useLocation();
+	useEffect(() => {
+		if (!hash) window.scrollTo(0, 0);
+	}, [pathname, hash]);
+	return null;
+}
+
 function AnimatedRoutes() {
 	const location = useLocation();
 	return (
@@ -121,6 +132,7 @@ export default function App() {
 
 	return (
 		<MotionConfig reducedMotion={a11y.hideAnimations ? 'always' : 'never'}>
+			<ScrollToTop />
 			<div className="a11y-content-root">
 				<Suspense fallback={<PageLoader />}>
 					<AnimatedRoutes />
