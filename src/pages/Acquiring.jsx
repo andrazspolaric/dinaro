@@ -26,7 +26,7 @@ const modules = [
 	{ title: 'PrestShop', sub: 'Dinaro Plugin', href: 'https://gate.paywiser.eu/apis/plugins/PrestaShop%20v1.7+' },
 ];
 
-function FeatureRow({ cardSide, tag, title, text }) {
+function FeatureRow({ cardSide, tag, title, text, image }) {
 	return (
 		<div className={`fp__feature-row${cardSide === 'left' ? ' fp__feature-row--reversed' : ''}`}>
 			<div className="fp__feature-text-side">
@@ -37,7 +37,7 @@ function FeatureRow({ cardSide, tag, title, text }) {
 				</div>
 			</div>
 			<div className="card fp__feature-card-side">
-				<div className="fp__feature-card-thumb" />
+				<div className="fp__feature-card-thumb" style={image ? { backgroundImage: `url(${image})` } : undefined} />
 			</div>
 		</div>
 	);
@@ -149,8 +149,8 @@ export default function Acquiring() {
 						exit={{ opacity: 0, x: -30 * direction }}
 						transition={{ duration: 0.2, ease: 'easeInOut' }}
 					>
-						{features.map(({ cardSide, tag, title, text }) => (
-							<FeatureRow key={tag} cardSide={cardSide} tag={tag} title={title} text={text} />
+						{features.map(({ cardSide, tag, title, text, image }) => (
+							<FeatureRow key={tag} cardSide={cardSide} tag={tag} title={title} text={text} image={image} />
 						))}
 					</motion.div>
 				) : (

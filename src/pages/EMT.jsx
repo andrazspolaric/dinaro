@@ -334,7 +334,7 @@ function FaqSection({ heading, items, variant = 'desktop' }) {
   );
 }
 
-function FeatureRow({ cardSide, tag, title, text }) {
+function FeatureRow({ cardSide, tag, title, text, image }) {
   return (
     <div className={`fp__feature-row${cardSide === 'left' ? ' fp__feature-row--reversed' : ''}`}>
       <div className="fp__feature-text-side">
@@ -345,7 +345,7 @@ function FeatureRow({ cardSide, tag, title, text }) {
         </div>
       </div>
       <div className="card fp__feature-card-side">
-        <div className="fp__feature-card-thumb" />
+        <div className="fp__feature-card-thumb" style={image ? { backgroundImage: `url(${image})` } : undefined} />
       </div>
     </div>
   );
@@ -395,8 +395,8 @@ export default function EMT({ variant = 'v1' }) {
         </div>
       </div>
       <div className="fp__features">
-        {features.map(({ cardSide, tag, title, text }) => (
-          <FeatureRow key={tag} cardSide={cardSide} tag={tag} title={title} text={text} />
+        {features.map(({ cardSide, tag, title, text, image }) => (
+          <FeatureRow key={tag} cardSide={cardSide} tag={tag} title={title} text={text} image={image} />
         ))}
         {reports && <ReportsSection {...reports} />}
       </div>

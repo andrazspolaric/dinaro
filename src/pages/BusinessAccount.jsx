@@ -15,7 +15,7 @@ const FEATURE_SIDES = ['right', 'left', 'right'];
 // Third feature (Multi-Currency Support) renders the "Coming soon" badge.
 const COMING_SOON_INDEX = 2;
 
-function FeatureRow({ cardSide, tag, title, text, comingSoon, comingSoonLabel }) {
+function FeatureRow({ cardSide, tag, title, text, comingSoon, comingSoonLabel, image }) {
   return (
     <div className={`fp__feature-row${cardSide === 'left' ? ' fp__feature-row--reversed' : ''}`}>
       <div className="fp__feature-text-side">
@@ -29,7 +29,7 @@ function FeatureRow({ cardSide, tag, title, text, comingSoon, comingSoonLabel })
         </div>
       </div>
       <div className="card fp__feature-card-side">
-        <div className="fp__feature-card-thumb" />
+        <div className="fp__feature-card-thumb" style={image ? { backgroundImage: `url(${image})` } : undefined} />
       </div>
     </div>
   );
@@ -76,7 +76,7 @@ export default function BusinessAccount() {
 
       <div className="fp__features">
         {features.map(({ cardSide, tag, title, text, comingSoon }) => (
-          <FeatureRow key={tag} cardSide={cardSide} tag={tag} title={title} text={text} comingSoon={comingSoon} comingSoonLabel={comingSoonLabel} />
+          <FeatureRow key={tag} cardSide={cardSide} tag={tag} title={title} text={text} image={image} comingSoon={comingSoon} comingSoonLabel={comingSoonLabel} />
         ))}
       </div>
 
