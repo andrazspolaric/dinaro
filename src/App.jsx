@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'motion/react';
 import PageTransition from './components/PageTransition';
 import AccessibilityToggle, { useA11yState } from './components/AccessibilityToggle';
@@ -80,8 +80,8 @@ function AnimatedRoutes() {
 			<Routes location={location} key={location.pathname}>
 				<Route path="/" element={<PageTransition><Homepage /></PageTransition>} />
 				<Route path="/products/payment-accounts" element={<PageTransition><PaymentAccounts /></PageTransition>} />
-				<Route path="/products/payment-accounts/individual" element={<PageTransition><Individuals /></PageTransition>} />
-				<Route path="/products/payment-accounts/business" element={<PageTransition><BusinessAccount /></PageTransition>} />
+				<Route path="/products/payment-accounts/individual" element={<Navigate to="/products/payment-accounts?tab=individual" replace />} />
+				<Route path="/products/payment-accounts/business" element={<Navigate to="/products/payment-accounts?tab=business" replace />} />
 				<Route path="/products/individuals" element={<PageTransition><Individuals /></PageTransition>} />
 				<Route path="/products/business-account" element={<PageTransition><BusinessAccount /></PageTransition>} />
 				<Route path="/products/debit-cards" element={<PageTransition><DebitCards /></PageTransition>} />

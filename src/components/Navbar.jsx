@@ -324,7 +324,7 @@ export default function Navbar({ activeItem }) {
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.15 }}
 						>
-							{productsDropdown.map(({ titleKey, titleHref, items }, index) => (
+							{productsDropdown.map(({ titleKey, titleHref, thumb, items }, index) => (
 								<motion.div
 									key={`products-${index}-${titleKey}`}
 									className={`navbar__dropdown-card${titleHref ? ' navbar__dropdown-card--clickable' : ''}`}
@@ -335,7 +335,10 @@ export default function Navbar({ activeItem }) {
 									onMouseEnter={titleHref ? () => preloadRoute(titleHref) : undefined}
 									style={titleHref ? { cursor: 'pointer' } : undefined}
 								>
-									<div className="navbar__dropdown-thumb" />
+									<div
+										className="navbar__dropdown-thumb"
+										style={thumb ? { backgroundImage: `url(${thumb})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : undefined}
+									/>
 									<div className="navbar__dropdown-body">
 										<p className="navbar__dropdown-title">{t(titleKey)}</p>
 										<div className="navbar__dropdown-items">
@@ -370,7 +373,7 @@ export default function Navbar({ activeItem }) {
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.15 }}
 						>
-							{solutionsDropdown.map(({ titleKey, titleHref, items }, index) => (
+							{solutionsDropdown.map(({ titleKey, titleHref, thumb, items }, index) => (
 								<motion.div
 									key={`solutions-${index}-${titleKey}`}
 									className={`navbar__dropdown-card${titleHref ? ' navbar__dropdown-card--clickable' : ''}`}
@@ -381,7 +384,10 @@ export default function Navbar({ activeItem }) {
 									onMouseEnter={titleHref ? () => preloadRoute(titleHref) : undefined}
 									style={titleHref ? { cursor: 'pointer' } : undefined}
 								>
-									<div className="navbar__dropdown-thumb" />
+									<div
+										className="navbar__dropdown-thumb"
+										style={thumb ? { backgroundImage: `url(${thumb})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : undefined}
+									/>
 									<div className="navbar__dropdown-body">
 										<p className="navbar__dropdown-title">{t(titleKey)}</p>
 										<div className="navbar__dropdown-items">

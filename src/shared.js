@@ -4,6 +4,15 @@ import _chevronUrl from './assets/chevron.svg';
 export const imgUnion = _logoUrl;
 export const imgGroup = _chevronUrl;
 
+// ── Nav dropdown thumbnails ────────────────────────────────────────
+import _navPaymentAccounts from './assets/graphics/customers/payment-accounts/nav.svg';
+import _navDebitCards from './assets/graphics/customers/debit-cards/nav.svg';
+import _navEmt from './assets/graphics/customers/emt/nav.svg';
+import _navAcquiring from './assets/graphics/customers/acquiring/nav.svg';
+import _navBankingApi from './assets/graphics/partners/banking-api/nav.svg';
+import _navCardsApi from './assets/graphics/partners/cards-api/nav.svg';
+import _navWhitelabel from './assets/graphics/partners/whitelabel/nav.svg';
+
 // ── Inline style helpers ───────────────────────────────────────────
 export const s = {
   inter: (weight, size, color, extra) => ({
@@ -42,14 +51,16 @@ export const productsDropdown = [
   {
     titleKey: 'nav.products.paymentAccounts',
     titleHref: '/products/payment-accounts',
+    thumb: _navPaymentAccounts,
     items: [
-      { labelKey: 'nav.products.paymentAccountsIndividual', href: '/products/payment-accounts/individual' },
-      { labelKey: 'nav.products.paymentAccountsBusiness', href: '/products/payment-accounts/business' },
+      { labelKey: 'nav.products.paymentAccountsIndividual', href: '/products/payment-accounts?tab=individual' },
+      { labelKey: 'nav.products.paymentAccountsBusiness', href: '/products/payment-accounts?tab=business' },
     ],
   },
   {
     titleKey: 'nav.products.debitCards',
     titleHref: '/products/debit-cards',
+    thumb: _navDebitCards,
     items: [
       { labelKey: 'nav.products.debitCardsIndividual', href: '/products/debit-cards/individual' },
       { labelKey: 'nav.products.debitCardsBusiness', href: '/products/debit-cards/business' },
@@ -58,6 +69,7 @@ export const productsDropdown = [
   {
     titleKey: 'nav.products.emt',
     titleHref: '/products/emt',
+    thumb: _navEmt,
     items: [
       { labelKey: 'nav.products.emtIssuing', href: '/products/emt' },
     ],
@@ -65,6 +77,7 @@ export const productsDropdown = [
   {
     titleKey: 'nav.products.acquiring',
     titleHref: '/products/acquiring',
+    thumb: _navAcquiring,
     items: [
       { labelKey: 'nav.products.acquiringECommerce', href: '/products/acquiring/e-commerce' },
       { labelKey: 'nav.products.acquiringPaymentModules', href: '/products/acquiring/payment-modules' },
@@ -76,6 +89,7 @@ export const solutionsDropdown = [
   {
     titleKey: 'nav.solutions.paymentAccountAaS',
     titleHref: '/solutions/banking-api',
+    thumb: _navBankingApi,
     items: [
       { labelKey: 'nav.solutions.paymentAccountApi', href: '/solutions/banking-api' },
     ],
@@ -83,6 +97,7 @@ export const solutionsDropdown = [
   {
     titleKey: 'nav.solutions.cardIssuing',
     titleHref: '/solutions/cards-api',
+    thumb: _navCardsApi,
     items: [
       { labelKey: 'nav.solutions.cardsApi', href: '/solutions/cards-api' },
     ],
@@ -90,6 +105,7 @@ export const solutionsDropdown = [
   {
     titleKey: 'nav.solutions.fintechServices',
     titleHref: '/solutions/whitelabel',
+    thumb: _navWhitelabel,
     items: [
       { labelKey: 'nav.solutions.onboarding', href: '/solutions/whitelabel/onboarding' },
       { labelKey: 'nav.solutions.ramp', href: '/solutions/whitelabel/ramp' },
