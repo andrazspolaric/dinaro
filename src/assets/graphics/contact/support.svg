@@ -1,34 +1,32 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Frame 1208">
-<g id="Frame 1206">
-<g id="Sign Checkmark" clip-path="url(#clip0_378_16)">
-<g id="Group">
-<circle id="Ellipse 2" cx="32" cy="32" r="31.5" fill="url(#paint0_linear_378_16)" stroke="#B5CBD1" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Frame 1210">
+<g id="icon-3" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="32" cy="32" r="31.5" fill="white" fill-opacity="0.1" stroke="#E5E5E5"/>
 <g id="Message Chat Question Support" clip-path="url(#clip1_378_16)">
-<g id="Group_2">
-<path id="Vector" d="M40.6658 40.752V43.3317C40.6658 43.4636 40.6267 43.5924 40.5534 43.7021C40.4802 43.8117 40.376 43.8971 40.2542 43.9476C40.1324 43.9981 39.9984 44.0113 39.8691 43.9855C39.7397 43.9598 39.621 43.8963 39.5277 43.8031L36.4766 40.752" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M40 28.667H40.6714C41.5542 28.667 42.4008 29.0177 43.0251 29.6419C43.6493 30.2662 44 31.1128 44 31.9956V37.424C44 38.3068 43.6493 39.1534 43.0251 39.7777C42.4008 40.4019 41.5542 40.7526 40.6714 40.7526" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_3" d="M36.4828 40.7523H32.6626C31.7798 40.7523 30.9331 40.4016 30.3089 39.7774C29.6847 39.1531 29.334 38.3065 29.334 37.4237V36" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_4" d="M27.6081 32L24.4714 35.1368C24.3782 35.23 24.2594 35.2935 24.1301 35.3192C24.0007 35.3449 23.8667 35.3317 23.7449 35.2813C23.623 35.2308 23.5189 35.1454 23.4457 35.0357C23.3724 34.9261 23.3333 34.7972 23.3333 34.6653V32H23.3286C22.8915 32 22.4586 31.9139 22.0548 31.7466C21.651 31.5793 21.284 31.3342 20.9749 31.0251C20.6658 30.716 20.4206 30.349 20.2534 29.9452C20.0861 29.5413 20 29.1085 20 28.6714V23.3286C20 22.4458 20.3507 21.5992 20.9749 20.9749C21.5992 20.3507 22.4458 20 23.3286 20H32.6714C33.5542 20 34.4008 20.3507 35.0251 20.9749C35.6493 21.5992 36 22.4458 36 23.3286V28.6714C36 29.1085 35.9139 29.5413 35.7466 29.9452C35.5794 30.349 35.3342 30.716 35.0251 31.0251C34.716 31.3342 34.349 31.5793 33.9452 31.7466C33.5414 31.9139 33.1085 32 32.6714 32H27.6081Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_5" d="M25.334 24H29.334" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_6" d="M25.334 28H26.6673" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_7" d="M36 36H38.6667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+<g id="Group">
+<path id="Vector" d="M42.8342 42.9405V46.1651C42.8342 46.3299 42.7853 46.491 42.6937 46.6281C42.6022 46.7651 42.472 46.8719 42.3197 46.935C42.1675 46.9981 41.9999 47.0146 41.8383 46.9824C41.6766 46.9503 41.5281 46.8709 41.4116 46.7544L37.5977 42.9404" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M42 27.833H42.8392C43.9427 27.833 45.001 28.2714 45.7813 29.0517C46.5616 29.832 47 30.8903 47 31.9938V38.7793C47 39.8828 46.5616 40.9411 45.7813 41.7214C45.001 42.5017 43.9427 42.94 42.8392 42.94" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M37.6021 42.9404H32.8268C31.7233 42.9404 30.665 42.502 29.8847 41.7217C29.1044 40.9414 28.666 39.8831 28.666 38.7796V37" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M26.5101 32L22.5892 35.9209C22.4727 36.0375 22.3242 36.1169 22.1626 36.149C22.0009 36.1812 21.8334 36.1647 21.6811 36.1016C21.5288 36.0385 21.3987 35.9317 21.3071 35.7946C21.2155 35.6576 21.1667 35.4965 21.1667 35.3317V32H21.1608C20.6144 32 20.0733 31.8924 19.5685 31.6833C19.0637 31.4742 18.605 31.1677 18.2186 30.7813C17.8323 30.395 17.5258 29.9363 17.3167 29.4315C17.1076 28.9267 17 28.3856 17 27.8392V21.1608C17 20.0573 17.4384 18.999 18.2187 18.2187C18.999 17.4384 20.0573 17 21.1608 17H32.8392C33.9427 17 35.001 17.4384 35.7813 18.2187C36.5616 18.999 37 20.0573 37 21.1608V27.8392C37 28.3856 36.8924 28.9267 36.6833 29.4315C36.4742 29.9363 36.1677 30.395 35.7814 30.7813C35.395 31.1677 34.9363 31.4742 34.4315 31.6833C33.9267 31.8924 33.3856 32 32.8392 32H26.5101Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M23.666 22H28.666" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M23.666 27H25.3327" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_7" d="M37 37H40.3333" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </g>
 </g>
 </g>
 </g>
 <defs>
-<linearGradient id="paint0_linear_378_16" x1="7.17577" y1="56.8243" x2="60.3084" y2="3.69166" gradientUnits="userSpaceOnUse">
-<stop stop-color="#004555"/>
-<stop offset="1" stop-color="#97B2B9"/>
+<linearGradient id="paint0_linear_378_16" x1="27" y1="17" x2="27" y2="36.165" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
 </linearGradient>
 <clipPath id="clip0_378_16">
 <rect width="64" height="64" fill="white"/>
 </clipPath>
 <clipPath id="clip1_378_16">
-<rect width="32" height="32" fill="white" transform="translate(16 16)"/>
+<rect width="40" height="40" fill="white" transform="translate(12 12)"/>
 </clipPath>
 </defs>
 </svg>

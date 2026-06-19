@@ -1,20 +1,18 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Frame 1208">
-<g id="Frame 1206">
-<g id="Sign Checkmark" clip-path="url(#clip0_378_16)">
-<g id="Group">
-<circle id="Ellipse 2" cx="32" cy="32" r="31.5" fill="url(#paint0_linear_378_16)" stroke="#B5CBD1" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Frame 1210">
+<g id="icon-2" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="32" cy="32" r="31.5" fill="white" fill-opacity="0.1" stroke="#E5E5E5"/>
 <g id="Basket, Shopping Cart" clip-path="url(#clip1_378_16)">
+<g id="Group">
 <g id="Group_2">
 <g id="Group_3">
-<g id="Group_4">
-<path id="Vector" d="M40.6667 43.9997H24.6667C23.1933 43.9997 22 42.8063 22 41.333V27.333C22 26.229 22.896 25.333 24 25.333H41.3333C42.4373 25.333 43.3333 26.229 43.3333 27.333V41.333C43.3333 42.8063 42.14 43.9997 40.6667 43.9997Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector" d="M41.4996 45.0006H24.1662C22.5701 45.0006 21.2773 43.7078 21.2773 42.1117V26.945C21.2773 25.749 22.248 24.7783 23.444 24.7783H42.2218C43.4178 24.7783 44.3885 25.749 44.3885 26.945V42.1117C44.3885 43.7078 43.0957 45.0006 41.4996 45.0006Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.08334" stroke-linecap="round" stroke-linejoin="round"/>
 <g id="Group 287">
-<line id="Line 1" x1="37.25" y1="29.8164" x2="36.75" y2="28.8164" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<line id="Line 2" x1="28.25" y1="29.8164" x2="27.75" y2="28.8164" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line id="Line 1" x1="38.0697" y1="29.3639" x2="36.9863" y2="28.2806" stroke="#004455" stroke-width="1.08334" stroke-linecap="round" stroke-linejoin="round"/>
+<line id="Line 2" x1="28.3197" y1="29.3639" x2="27.2363" y2="28.2806" stroke="#004455" stroke-width="1.08334" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
-<path id="Vector_2" d="M27.334 25.3333V25C27.334 22.2387 29.5727 20 32.334 20H33.0007C35.762 20 38.0007 22.2387 38.0007 25V25.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+<path id="Vector_2" d="M27.0547 24.7778V24.4167C27.0547 21.4252 29.4799 19 32.4714 19H33.1936C36.185 19 38.6103 21.4252 38.6103 24.4167V24.7778" stroke="#004455" stroke-width="1.08334" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </g>
 </g>
@@ -23,15 +21,15 @@
 </g>
 </g>
 <defs>
-<linearGradient id="paint0_linear_378_16" x1="7.17577" y1="56.8243" x2="60.3084" y2="3.69166" gradientUnits="userSpaceOnUse">
-<stop stop-color="#004555"/>
-<stop offset="1" stop-color="#97B2B9"/>
+<linearGradient id="paint0_linear_378_16" x1="32.8329" y1="24.7783" x2="32.8329" y2="45.0006" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
 </linearGradient>
 <clipPath id="clip0_378_16">
 <rect width="64" height="64" fill="white"/>
 </clipPath>
 <clipPath id="clip1_378_16">
-<rect width="32" height="32" fill="white" transform="translate(16 16)"/>
+<rect width="40" height="40" fill="white" transform="translate(12 12)"/>
 </clipPath>
 </defs>
 </svg>
