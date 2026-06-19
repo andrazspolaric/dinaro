@@ -9,6 +9,16 @@ import '../components/FeaturePage.css';
 
 import imgVector from '../assets/api-vector.svg';
 
+import iconGlobal from '../assets/graphics/cards-api/global.svg';
+import iconFraud from '../assets/graphics/cards-api/fraud.svg';
+import iconSettlement from '../assets/graphics/cards-api/settlement.svg';
+import iconApi from '../assets/graphics/cards-api/api.svg';
+import iconCards from '../assets/graphics/cards-api/cards.svg';
+import iconCompliance from '../assets/graphics/cards-api/compliance.svg';
+
+// Order matches cardsApi.whyCards: Global, Fraud, Settlement, API, Cards, Compliance.
+const WHY_ICONS = [iconGlobal, iconFraud, iconSettlement, iconApi, iconCards, iconCompliance];
+
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
 const FEATURE_SIDES = ['right', 'left', 'right', 'left'];
@@ -78,9 +88,9 @@ export default function CardsAPI() {
 
       <div className="fp__why-grid">
         <div className="fp__why-grid-row">
-          {whyCards.slice(0, 3).map(({ title, text }) => (
+          {whyCards.slice(0, 3).map(({ title, text }, i) => (
             <div key={title} className="card fp__why-card">
-              <div className="fp__why-card-icon" />
+              <div className="fp__why-card-icon" style={WHY_ICONS[i] ? { background: `url(${WHY_ICONS[i]}) center/contain no-repeat`, border: 'none' } : undefined} />
               <div className="fp__why-card-content">
                 <p className="fp__why-card-title">{title}</p>
                 <p className="fp__why-card-text">{text}</p>
@@ -89,9 +99,9 @@ export default function CardsAPI() {
           ))}
         </div>
         <div className="fp__why-grid-row">
-          {whyCards.slice(3).map(({ title, text }) => (
+          {whyCards.slice(3).map(({ title, text }, i) => (
             <div key={title} className="card fp__why-card">
-              <div className="fp__why-card-icon" />
+              <div className="fp__why-card-icon" style={WHY_ICONS[i + 3] ? { background: `url(${WHY_ICONS[i + 3]}) center/contain no-repeat`, border: 'none' } : undefined} />
               <div className="fp__why-card-content">
                 <p className="fp__why-card-title">{title}</p>
                 <p className="fp__why-card-text">{text}</p>

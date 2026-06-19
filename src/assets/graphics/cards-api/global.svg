@@ -1,0 +1,35 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1201">
+<g id="Frame 1210">
+<g id="icon-1" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="32" cy="32" r="31.5" fill="white" fill-opacity="0.1" stroke="#E5E5E5"/>
+<g id="Globe, Certificate, Check mark" clip-path="url(#clip1_378_16)">
+<g id="Group">
+<g id="Group_2">
+<g id="Group_3">
+<path id="Vector" d="M32 47C23.715 47 17 40.285 17 32C17 23.715 23.715 17 32 17C40.285 17 47 23.715 47 32" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M17.8555 27H45.9688" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M17.8574 37H32.0008" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M38.6665 31.9996C38.6665 27.3929 37.4615 22.7862 35.0548 18.7662C33.6432 16.4112 30.3565 16.4112 28.9465 18.7662C24.1298 26.8079 24.1298 37.1929 28.9465 45.2346C29.6515 46.4112 30.8265 47.0012 32.0015 47.0012" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M44.0741 40.9648L41.4808 43.5582L39.9258 42.0015" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M35.7004 43.0871L36.5854 44.2454L36.7771 45.6871C36.8838 46.4871 37.5121 47.1171 38.3121 47.2237L39.7571 47.4171L40.9138 48.3004C41.5538 48.7904 42.4438 48.7904 43.0838 48.3004L44.2421 47.4154L45.6838 47.2237C46.4838 47.1171 47.1138 46.4887 47.2204 45.6887L47.4138 44.2437C47.4138 44.2454 47.8621 43.6587 48.2988 43.0871C48.7888 42.4471 48.7888 41.5571 48.2988 40.9171L47.4138 39.7587L47.2221 38.3171C47.1154 37.5171 46.4871 36.8871 45.6871 36.7804L44.2404 36.5887L43.0838 35.7054C42.4438 35.2154 41.5538 35.2154 40.9138 35.7054L39.7554 36.5887L38.3138 36.7787C37.5138 36.8854 36.8838 37.5137 36.7771 38.3137L36.5838 39.7587C36.5838 39.7571 36.1354 40.3437 35.6988 40.9154C35.2121 41.5571 35.2121 42.4454 35.7004 43.0871Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_378_16" x1="42.0001" y1="35.3379" x2="42.0001" y2="48.6679" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
+</linearGradient>
+<clipPath id="clip0_378_16">
+<rect width="64" height="64" fill="white"/>
+</clipPath>
+<clipPath id="clip1_378_16">
+<rect width="40" height="40" fill="white" transform="translate(12 12)"/>
+</clipPath>
+</defs>
+</svg>

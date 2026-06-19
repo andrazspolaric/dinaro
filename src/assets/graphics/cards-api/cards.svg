@@ -1,0 +1,29 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1201">
+<g id="Frame 1210">
+<g id="icon-5" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="32" cy="32" r="31.5" fill="white" fill-opacity="0.1" stroke="#E5E5E5"/>
+<g id="Credit card" clip-path="url(#clip1_378_16)">
+<g id="Group">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M43.6667 43.6663H25.3333C23.4917 43.6663 22 42.1747 22 40.333V28.6663C22 26.8247 23.4917 25.333 25.3333 25.333H43.6667C45.5083 25.333 47 26.8247 47 28.6663V40.333C47 42.1747 45.5083 43.6663 43.6667 43.6663Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M22 32H47" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M22 38.6663H20.3333C18.4917 38.6663 17 37.1747 17 35.333V23.6663C17 21.8247 18.4917 20.333 20.3333 20.333H38.6667C40.5083 20.333 42 21.8247 42 23.6663V25.333" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M32 38.667H27" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_378_16" x1="34.5" y1="25.333" x2="34.5" y2="43.6663" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
+</linearGradient>
+<clipPath id="clip0_378_16">
+<rect width="64" height="64" fill="white"/>
+</clipPath>
+<clipPath id="clip1_378_16">
+<rect width="40" height="40" fill="white" transform="translate(12 12)"/>
+</clipPath>
+</defs>
+</svg>

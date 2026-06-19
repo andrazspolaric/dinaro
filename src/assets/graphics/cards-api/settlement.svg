@@ -1,0 +1,29 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1201">
+<g id="Frame 1210">
+<g id="icon-3" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="32" cy="32" r="31.5" fill="white" fill-opacity="0.1" stroke="#E5E5E5"/>
+<g id="Thunder, Lightning, Fast" clip-path="url(#clip1_378_16)">
+<g id="Group">
+<path id="Vector" d="M39.2724 21.393V29.1763H45.914C46.1076 29.1719 46.2986 29.2207 46.4662 29.3174C46.6339 29.4141 46.7717 29.5551 46.8648 29.7248C46.9578 29.8945 47.0024 30.0865 46.9938 30.2799C46.9851 30.4733 46.9235 30.6605 46.8157 30.8213L38.3724 43.193C38.2426 43.3827 38.0561 43.5264 37.8395 43.6034C37.623 43.6804 37.3876 43.6868 37.1672 43.6216C36.9467 43.5564 36.7527 43.423 36.6129 43.2406C36.4731 43.0581 36.3947 42.8361 36.389 42.6063V34.818H29.7507C29.5572 34.8224 29.3662 34.7736 29.1985 34.6768C29.0309 34.5801 28.893 34.4392 28.8 34.2695C28.707 34.0997 28.6623 33.9077 28.671 33.7143C28.6796 33.521 28.7412 33.3337 28.849 33.173L37.289 20.8063C37.4188 20.6166 37.6053 20.4729 37.8219 20.3958C38.0385 20.3188 38.2739 20.3124 38.4943 20.3776C38.7147 20.4428 38.9087 20.5762 39.0485 20.7587C39.1884 20.9411 39.2667 21.1632 39.2724 21.393Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M27 42H18.25" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M22.6257 32.833H15.334" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M27 23.667H18.25" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_378_16" x1="37.8324" y1="20.333" x2="37.8324" y2="43.6662" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
+</linearGradient>
+<clipPath id="clip0_378_16">
+<rect width="64" height="64" fill="white"/>
+</clipPath>
+<clipPath id="clip1_378_16">
+<rect width="40" height="40" fill="white" transform="translate(12 12)"/>
+</clipPath>
+</defs>
+</svg>
