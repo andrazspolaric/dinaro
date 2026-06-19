@@ -1,0 +1,29 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1209">
+<g id="Frame 1211">
+<g id="icon-2" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="24" cy="24" r="23.5" fill="white" fill-opacity="0.1" stroke="#E5EBED"/>
+<g id="Send message, Send, Share" clip-path="url(#clip1_378_16)">
+<g id="Group">
+<g id="Group_2">
+<path id="Vector" d="M20.229 24.3408L22.2952 33.6383C22.5531 34.7968 24.0919 35.0465 24.7021 34.0291L34.3263 17.9881C34.8525 17.113 34.2225 16 33.2016 16H15.0581C13.8879 16 13.3022 17.414 14.1294 18.2412L20.229 24.3408Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M34.3301 16.6533L20.2246 24.3419" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_378_16" x1="24.1292" y1="16" x2="24.1292" y2="34.6672" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
+</linearGradient>
+<clipPath id="clip0_378_16">
+<rect width="48" height="48" fill="white"/>
+</clipPath>
+<clipPath id="clip1_378_16">
+<rect width="32" height="32" fill="white" transform="translate(8 8)"/>
+</clipPath>
+</defs>
+</svg>

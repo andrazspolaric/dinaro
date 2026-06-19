@@ -9,6 +9,9 @@ import '../components/MobileFeaturePage.css';
 
 import imgVector from '../assets/privacy-vector.svg';
 
+import iconPost from '../assets/graphics/complaints/post.svg';
+import iconEmail from '../assets/graphics/complaints/email.svg';
+
 const heroBg = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), url("data:image/svg+xml,%3Csvg viewBox='0 0 1696 456' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3E%3Crect x='0' y='0' height='100%25' width='100%25' fill='url(%23grad)' opacity='1'/%3E%3Cdefs%3E%3CradialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-30 39.071 -76 -15.423 1148 228.26)'%3E%3Cstop stop-color='rgba(34,132,155,0.2)' offset='0'/%3E%3Cstop stop-color='rgba(34,132,155,0)' offset='1'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
 
 const heroBgMobile = `linear-gradient(44.5deg, rgb(4,67,82) 0%, rgba(4,67,82,0) 100%), linear-gradient(90deg, rgb(4,67,82) 0%, rgb(4,67,82) 100%)`;
@@ -22,10 +25,13 @@ function Bullet({ children }) {
   );
 }
 
-function ContactRow({ label, value }) {
+function ContactRow({ label, value, icon }) {
   return (
     <div className="complaints__contact-info-row">
-      <div className="complaints__contact-info-icon" />
+      <div
+        className="complaints__contact-info-icon"
+        style={icon ? { background: `url(${icon}) center/contain no-repeat`, border: 'none' } : undefined}
+      />
       <div className="complaints__contact-info-body">
         <p className="complaints__contact-info-label">{label}</p>
         <p className="complaints__contact-info-value">{value}</p>
@@ -57,8 +63,8 @@ export default function Complaints() {
           <div className="card complaints__mobile-card">
             <p className="complaints__mobile-card-title">{c.mobile.submitTitle}</p>
             <p className="complaints__mobile-card-text">{c.lead}</p>
-            <ContactRow label={c.byPostLabel} value={c.byPostValue} />
-            <ContactRow label={c.byEmailLabel} value={c.byEmailValue} />
+            <ContactRow label={c.byPostLabel} value={c.byPostValue} icon={iconPost} />
+            <ContactRow label={c.byEmailLabel} value={c.byEmailValue} icon={iconEmail} />
             <p className="complaints__mobile-footnote">
               {c.footnotePre}
               <button type="button" onClick={() => navigate('/terms')} className="complaints__terms-link">
@@ -126,10 +132,10 @@ export default function Complaints() {
           <p className="complaints__lead">{c.lead}</p>
           <div className="complaints__contact-row">
             <div className="complaints__contact-col">
-              <ContactRow label={c.byPostLabel} value={c.byPostValue} />
+              <ContactRow label={c.byPostLabel} value={c.byPostValue} icon={iconPost} />
             </div>
             <div className="complaints__contact-col--fixed">
-              <ContactRow label={c.byEmailLabel} value={c.byEmailValue} />
+              <ContactRow label={c.byEmailLabel} value={c.byEmailValue} icon={iconEmail} />
             </div>
           </div>
           <p className="complaints__footnote">

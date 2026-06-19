@@ -1,0 +1,35 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 1209">
+<g id="Frame 1211">
+<g id="icon-1" clip-path="url(#clip0_378_16)">
+<circle id="Ellipse 3" cx="24" cy="24" r="23.5" fill="white" fill-opacity="0.1" stroke="#E5EBED"/>
+<g id="Emails, Letter, Mail" clip-path="url(#clip1_378_16)">
+<g id="Group">
+<g id="Group_2">
+<g id="Group_3">
+<path id="Vector" d="M12 17.067C12 17.867 12.4 18.5337 13.0667 19.067L21.0667 24.5337C22.9333 25.7337 25.2 25.7337 27.0667 24.5337L35.0667 19.2003C35.6 18.5337 36 17.867 36 17.067C36 15.7337 34.9333 14.667 33.6 14.667H14.4C13.0667 14.667 12 15.7337 12 17.067Z" fill="url(#paint0_linear_378_16)" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="Group_4">
+<path id="Vector_2" d="M12 17.334V30.6673C12 32.134 13.2 33.334 14.6667 33.334H33.3333C34.8 33.334 36 32.134 36 30.6673V17.334" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path id="Vector_3" d="M12.8008 32.5338L20.865 24.4932" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M27.2188 24.583L35.2008 32.5338" stroke="#004455" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_378_16" x1="24" y1="14.667" x2="24" y2="25.4337" gradientUnits="userSpaceOnUse">
+<stop stop-color="#004455" stop-opacity="0"/>
+<stop offset="1" stop-color="#004455" stop-opacity="0.2"/>
+</linearGradient>
+<clipPath id="clip0_378_16">
+<rect width="48" height="48" fill="white"/>
+</clipPath>
+<clipPath id="clip1_378_16">
+<rect width="32" height="32" fill="white" transform="translate(8 8)"/>
+</clipPath>
+</defs>
+</svg>
