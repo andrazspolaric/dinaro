@@ -1025,3 +1025,26 @@ function _resolveAssets(node) {
 }
 
 export const strings = _resolveAssets(_rawStrings);
+
+// Images are language-independent, but the `image` fields only live on the
+// English content. Copy them onto every other language tree at the matching
+// structural path so feature images show regardless of selected language.
+// A language's own image (e.g. SL homepage) is kept — we only fill gaps.
+function _propagateImages(source, target) {
+	if (!source || !target || typeof source !== 'object' || typeof target !== 'object') return;
+	if (Array.isArray(source)) {
+		if (Array.isArray(target)) source.forEach((item, i) => _propagateImages(item, target[i]));
+		return;
+	}
+	for (const key in source) {
+		if (key === 'image' && typeof source.image === 'string') {
+			if (typeof target.image !== 'string') target.image = source.image;
+		} else if (source[key] && typeof source[key] === 'object') {
+			_propagateImages(source[key], target[key]);
+		}
+	}
+}
+
+for (const lang in strings) {
+	if (lang !== 'en') _propagateImages(strings.en, strings[lang]);
+}
